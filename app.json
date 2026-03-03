@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Asma Ul Husna",
+    "slug": "asmaul-husna",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0D2818"
+    },
+    "scheme": "asmaulhusna",
+    "plugins": [
+      "expo-router",
+      [
+        "expo-font",
+        {
+          "fonts": ["./assets/fonts/Amiri-Regular.ttf", "./assets/fonts/Amiri-Bold.ttf"]
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.helpables.asmaulhusna"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png",
+        "backgroundColor": "#0D2818"
+      },
+      "package": "com.helpables.asmaulhusna"
+    },
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
