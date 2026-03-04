@@ -1,0 +1,55 @@
+name: Publish to Expo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  publish:
+    name: EAS Update + Telegram QR
+    runs-on: [self-hosted, macOS, ARM64, detox]
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: EAS Update (preview channel)
+        id: eas_update
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          UPDATE_JSON=$(eas update \
+            --channel preview \
+            --message "CI: ${GITHUB_SHA::7}" \
+            --non-interactive \
+            --json)
+          echo "$UPDATE_JSON"
+          UPDATE_ID=$(echo "$UPDATE_JSON" | jq -r 'if type=="array" then .[0].id else .id end' 2>/dev/null || echo "unknown")
+          echo "update_id=$UPDATE_ID" >> $GITHUB_OUTPUT
+          echo "Published: $UPDATE_ID"
+
+      - name: Send QR to Telegram
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          UPDATE_ID: ${{ steps.eas_update.outputs.update_id }}
+        run: |
+          PROJECT_ID="2fbc51fc-28b7-4e82-a34c-0c9713da18d5"
+          EXPO_URL="exp://u.expo.dev/${PROJECT_ID}?channel-name=preview"
+          ENCODED=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$EXPO_URL")
+          QR_URL="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${ENCODED}"
+          SHORT_SHA="${GITHUB_SHA::7}"
+          CAPTION="Asma Ul Husna updated. Commit: ${SHORT_SHA} | Scan with Expo Go"
+
+          RESULT=$(curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto" \
+            -F "chat_id=${CHAT_ID}" \
+            -F "photo=${QR_URL}" \
+            -F "caption=${CAPTION}")
+          echo "$RESULT" | jq -r 'if .ok then "Telegram sent OK" else "Telegram error: \(.description)" end'

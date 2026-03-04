@@ -17,7 +17,10 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/Amiri-Regular.ttf", "./assets/fonts/Amiri-Bold.ttf"]
+          "fonts": [
+            "./assets/fonts/Amiri-Regular.ttf",
+            "./assets/fonts/Amiri-Bold.ttf"
+          ]
         }
       ]
     ],
@@ -35,6 +38,19 @@
     },
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "2fbc51fc-28b7-4e82-a34c-0c9713da18d5"
+      }
+    },
+    "owner": "takrimk",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/2fbc51fc-28b7-4e82-a34c-0c9713da18d5"
     }
   }
 }
