@@ -39,21 +39,17 @@ jobs:
           echo "update_id=$UPDATE_ID" >> $GITHUB_OUTPUT
           echo "Published: $UPDATE_ID"
 
-      - name: Send QR to Telegram
+      - name: Notify Telegram
         env:
           BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           UPDATE_ID: ${{ steps.eas_update.outputs.update_id }}
         run: |
-          PROJECT_ID="2fbc51fc-28b7-4e82-a34c-0c9713da18d5"
-          EXPO_URL="exp://u.expo.dev/${PROJECT_ID}?channel-name=preview"
-          ENCODED=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$EXPO_URL")
-          QR_URL="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${ENCODED}"
           SHORT_SHA="${GITHUB_SHA::7}"
-          CAPTION="Asma Ul Husna updated. Commit: ${SHORT_SHA} | Scan with Expo Go"
+          EXPO_URL="exp://u.expo.dev/2fbc51fc-28b7-4e82-a34c-0c9713da18d5?channel-name=preview"
+          MSG="Asma Ul Husna updated (${SHORT_SHA}) - Open in Expo Go: ${EXPO_URL}"
 
-          RESULT=$(curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto" \
+          RESULT=$(curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
             -F "chat_id=${CHAT_ID}" \
-            -F "photo=${QR_URL}" \
-            -F "caption=${CAPTION}")
+            -F "text=${MSG}")
           echo "$RESULT" | jq -r 'if .ok then "Telegram sent OK" else "Telegram error: \(.description)" end'
