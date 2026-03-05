@@ -7,7 +7,7 @@ on:
 jobs:
   publish:
     name: EAS Update + Telegram QR
-    runs-on: [self-hosted, macOS, ARM64, detox]
+    runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
