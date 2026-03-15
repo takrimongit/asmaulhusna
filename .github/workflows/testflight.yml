@@ -45,7 +45,8 @@ jobs:
             --profile production \
             --platform ios \
             --latest \
-            --non-interactive
+            --non-interactive \
+            --asc-app-id ${{ secrets.EXPO_ASC_APP_ID }}
 
       - name: Notify Telegram
         if: always()
