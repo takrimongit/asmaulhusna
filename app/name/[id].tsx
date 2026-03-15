@@ -1,8 +1,8 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Share, Platform, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { Audio } from 'expo-av';
+import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { names } from '../../data/names';
 import { useFavorites } from '../../hooks/useFavorites';
 import { colors, fonts, spacing, radius } from '../../constants/theme';
@@ -14,38 +14,25 @@ export default function NameDetail() {
   const { favorites, toggle } = useFavorites();
 
   const name = names.find((n) => n.id === Number(id));
-  const soundRef = useRef<Audio.Sound | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const audioUri = name ? `https://cdn.islamic.network/audio/99-names/${name.id}.mp3` : undefined;
+  const player = useAudioPlayer(audioUri);
+  const status = useAudioPlayerStatus(player);
 
-  const playAudio = useCallback(async () => {
-    if (!name) return;
-    try {
-      // Stop any currently playing sound
-      if (soundRef.current) {
-        await soundRef.current.unloadAsync();
-        soundRef.current = null;
-      }
-      setIsLoading(true);
-      const { sound } = await Audio.Sound.createAsync(
-        { uri: `https://cdn.islamic.network/audio/99-names/${name.id}.mp3` },
-        { shouldPlay: true },
-      );
-      soundRef.current = sound;
-      setIsPlaying(true);
-      setIsLoading(false);
-      sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded && status.didJustFinish) {
-          setIsPlaying(false);
-          sound.unloadAsync();
-          soundRef.current = null;
-        }
-      });
-    } catch {
-      setIsLoading(false);
-      setIsPlaying(false);
+  // Update audio source when navigating between names
+  useEffect(() => {
+    if (audioUri) {
+      player.replace(audioUri);
     }
-  }, [name]);
+  }, [audioUri]);
+
+  const handlePlayPause = () => {
+    if (status.playing) {
+      player.pause();
+    } else {
+      player.seekTo(0);
+      player.play();
+    }
+  };
 
   if (!name) return null;
 
@@ -86,11 +73,11 @@ export default function NameDetail() {
           </View>
 
           {/* Sound button */}
-          <TouchableOpacity style={styles.soundButton} activeOpacity={0.8} onPress={playAudio}>
-            {isLoading ? (
+          <TouchableOpacity style={styles.soundButton} activeOpacity={0.8} onPress={handlePlayPause}>
+            {status.isBuffering ? (
               <ActivityIndicator size="small" color="#FFFFFF" />
             ) : (
-              <Ionicons name={isPlaying ? 'pause' : 'volume-high'} size={24} color="#FFFFFF" />
+              <Ionicons name={status.playing ? 'pause' : 'volume-high'} size={24} color="#FFFFFF" />
             )}
           </TouchableOpacity>
         </View>

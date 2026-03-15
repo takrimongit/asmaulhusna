@@ -22,7 +22,8 @@
             "./assets/fonts/Amiri-Bold.ttf"
           ]
         }
-      ]
+      ],
+      "expo-audio"
     ],
     "ios": {
       "supportsTablet": true,
