@@ -10,8 +10,6 @@ on:
         type: choice
         options:
           - android
-          - ios
-          - all
 
 jobs:
   build:
@@ -33,23 +31,12 @@ jobs:
         run: npm install -g eas-cli
 
       - name: Build (Android)
-        if: inputs.platform == 'android' || inputs.platform == 'all'
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
           eas build \
             --profile development \
             --platform android \
-            --non-interactive
-
-      - name: Build (iOS)
-        if: inputs.platform == 'ios' || inputs.platform == 'all'
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-        run: |
-          eas build \
-            --profile development \
-            --platform ios \
             --non-interactive
 
       - name: Notify Telegram
