@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Stack } from 'expo-router';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { colors } from '../constants/theme';
+import { SplashScreenView } from '../components/SplashScreen';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -12,6 +13,7 @@ export default function RootLayout() {
     'Amiri-Regular': require('../assets/fonts/Amiri-Regular.ttf'),
     'Amiri-Bold': require('../assets/fonts/Amiri-Bold.ttf'),
   });
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
@@ -20,6 +22,15 @@ export default function RootLayout() {
   }, [fontsLoaded, fontError]);
 
   if (!fontsLoaded && !fontError) return null;
+
+  if (showSplash) {
+    return (
+      <>
+        <StatusBar style="light" />
+        <SplashScreenView onFinish={() => setShowSplash(false)} />
+      </>
+    );
+  }
 
   return (
     <>
