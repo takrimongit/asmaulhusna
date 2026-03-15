@@ -32,8 +32,20 @@ jobs:
           eas build \
             --profile production \
             --platform ios \
-            --non-interactive \
-            --auto-submit
+            --non-interactive
+
+      - name: Submit to TestFlight
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+          EXPO_APPLE_ID: ${{ secrets.EXPO_APPLE_ID }}
+          EXPO_APPLE_PASSWORD: ${{ secrets.EXPO_APPLE_PASSWORD }}
+          EXPO_APPLE_TEAM_ID: ${{ secrets.EXPO_APPLE_TEAM_ID }}
+        run: |
+          eas submit \
+            --profile production \
+            --platform ios \
+            --latest \
+            --non-interactive
 
       - name: Notify Telegram
         if: always()
