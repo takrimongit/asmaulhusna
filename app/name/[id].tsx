@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Share, Platform, ActivityIndicator } from 'react-native';
+import React from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Share, Platform } from 'react-native';
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import { useAudioPlayer, useAudioPlayerStatus } from 'expo-audio';
 import { names } from '../../data/names';
 import { useFavorites } from '../../hooks/useFavorites';
+import { useTasbeeh } from '../../hooks/useTasbeeh';
 import { colors, fonts, spacing, radius } from '../../constants/theme';
 
 export default function NameDetail() {
@@ -14,27 +14,11 @@ export default function NameDetail() {
   const { favorites, toggle } = useFavorites();
 
   const name = names.find((n) => n.id === Number(id));
-  const audioUri = name ? `https://cdn.islamic.network/audio/99-names/${name.id}.mp3` : undefined;
-  const player = useAudioPlayer(audioUri);
-  const status = useAudioPlayerStatus(player);
-
-  // Update audio source when navigating between names
-  useEffect(() => {
-    if (audioUri) {
-      player.replace(audioUri);
-    }
-  }, [audioUri]);
-
-  const handlePlayPause = () => {
-    if (status.playing) {
-      player.pause();
-    } else {
-      player.seekTo(0);
-      player.play();
-    }
-  };
+  const { counts, increment, reset } = useTasbeeh();
 
   if (!name) return null;
+
+  const count = counts[name.id] || 0;
 
   const isFav = favorites.has(name.id);
   const prev = names.find((n) => n.id === name.id - 1);
@@ -72,13 +56,14 @@ export default function NameDetail() {
             <Text style={styles.heroTranslit}>{name.transliteration.toUpperCase()}</Text>
           </View>
 
-          {/* Sound button */}
-          <TouchableOpacity style={styles.soundButton} activeOpacity={0.8} onPress={handlePlayPause}>
-            {status.isBuffering ? (
-              <ActivityIndicator size="small" color="#FFFFFF" />
-            ) : (
-              <Ionicons name={status.playing ? 'pause' : 'volume-high'} size={24} color="#FFFFFF" />
-            )}
+          {/* Tasbeeh counter */}
+          <TouchableOpacity
+            style={styles.counterButton}
+            activeOpacity={0.7}
+            onPress={() => increment(name.id)}
+            onLongPress={() => reset(name.id)}
+          >
+            <Text style={styles.counterText}>{count}</Text>
           </TouchableOpacity>
         </View>
 
@@ -248,7 +233,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontWeight: '700',
   },
-  soundButton: {
+  counterButton: {
     position: 'absolute',
     bottom: 20,
     right: 20,
@@ -264,6 +249,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 10,
     elevation: 6,
+  },
+  counterText: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#FFFFFF',
   },
   /* ─── Meaning ─── */
   meaningTitle: {

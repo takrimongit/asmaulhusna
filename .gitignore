@@ -42,3 +42,5 @@ yarn-error.*
 
 # temp
 app/temp/
+screenshots/
+scripts/generate-icon.py
