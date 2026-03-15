@@ -41,24 +41,15 @@ jobs:
             --non-interactive
 
       - name: Inject submit credentials into eas.json
-        run: |
-          python3 -c "
-import json
-with open('eas.json') as f:
-    data = json.load(f)
-data['submit']['production']['ios'] = {
-    'ascAppId': '$ASC_APP_ID',
-    'appleId': '$APPLE_ID',
-    'appleTeamId': '$APPLE_TEAM_ID'
-}
-with open('eas.json', 'w') as f:
-    json.dump(data, f, indent=2)
-"
-          cat eas.json
         env:
           ASC_APP_ID: ${{ secrets.EXPO_ASC_APP_ID }}
           APPLE_ID: ${{ secrets.EXPO_APPLE_ID }}
           APPLE_TEAM_ID: ${{ secrets.EXPO_APPLE_TEAM_ID }}
+        run: |
+          jq --arg asc "$ASC_APP_ID" --arg aid "$APPLE_ID" --arg tid "$APPLE_TEAM_ID" \
+            '.submit.production.ios = { ascAppId: $asc, appleId: $aid, appleTeamId: $tid }' \
+            eas.json > eas.tmp && mv eas.tmp eas.json
+          cat eas.json
 
       - name: Submit to TestFlight
         env:
