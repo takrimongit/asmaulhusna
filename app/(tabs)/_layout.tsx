@@ -1,4 +1,5 @@
 import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/theme';
 
 export default function TabsLayout() {
@@ -6,17 +7,17 @@ export default function TabsLayout() {
     <Tabs
       screenOptions={{
         tabBarStyle: {
-          backgroundColor: colors.backgroundLight,
-          borderTopColor: colors.cardBorder,
+          backgroundColor: '#0d140f',
+          borderTopColor: 'rgba(17,212,82,0.1)',
           borderTopWidth: 1,
           height: 60,
           paddingBottom: 8,
         },
-        tabBarActiveTintColor: colors.gold,
-        tabBarInactiveTintColor: colors.gray,
-        tabBarLabelStyle: { fontSize: 11, letterSpacing: 0.5 },
-        headerStyle: { backgroundColor: colors.background },
-        headerTintColor: colors.gold,
+        tabBarActiveTintColor: '#11d452',
+        tabBarInactiveTintColor: '#64748b',
+        tabBarLabelStyle: { fontSize: 10, fontWeight: '500', letterSpacing: 0.5 },
+        headerStyle: { backgroundColor: '#0d140f' },
+        headerTintColor: '#f1f5f9',
         headerTitleStyle: { fontWeight: '700', letterSpacing: 1.5 },
         headerTitleAlign: 'center',
       }}
@@ -24,10 +25,26 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'ASMA UL HUSNA',
-          tabBarLabel: 'All Names',
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: 'Asma Ul Husna',
+          tabBarLabel: 'Explore',
           tabBarIcon: ({ color, size }) => (
-            <TabIcon glyph="☪" color={color} size={size} />
+            <Ionicons name="compass-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="names"
+        options={{
+          title: 'ASMA UL HUSNA',
+          tabBarLabel: 'Learn',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="book-outline" size={size} color={color} />
           ),
         }}
       />
@@ -35,17 +52,30 @@ export default function TabsLayout() {
         name="favorites"
         options={{
           title: 'FAVOURITES',
-          tabBarLabel: 'Favourites',
+          tabBarLabel: 'Favorites',
           tabBarIcon: ({ color, size }) => (
-            <TabIcon glyph="♥" color={color} size={size} />
+            <Ionicons name="heart-outline" size={size} color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'SETTINGS',
+          tabBarLabel: 'Settings',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="settings-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="tasbih"
+        options={{
+          href: null,
+          title: 'TASBIH',
+          tabBarLabel: 'Tasbih',
         }}
       />
     </Tabs>
   );
-}
-
-function TabIcon({ glyph, color, size }: { glyph: string; color: string; size: number }) {
-  const { Text } = require('react-native');
-  return <Text style={{ color, fontSize: size - 2 }}>{glyph}</Text>;
 }

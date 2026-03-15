@@ -1,6 +1,8 @@
-import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
-import { useLocalSearchParams, useNavigation } from 'expo-router';
+import React, { useRef, useState, useCallback } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Share, Platform, ActivityIndicator } from 'react-native';
+import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { Audio } from 'expo-av';
 import { names } from '../../data/names';
 import { useFavorites } from '../../hooks/useFavorites';
 import { colors, fonts, spacing, radius } from '../../constants/theme';
@@ -8,41 +10,130 @@ import { colors, fonts, spacing, radius } from '../../constants/theme';
 export default function NameDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const navigation = useNavigation();
+  const router = useRouter();
   const { favorites, toggle } = useFavorites();
 
   const name = names.find((n) => n.id === Number(id));
+  const soundRef = useRef<Audio.Sound | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const playAudio = useCallback(async () => {
+    if (!name) return;
+    try {
+      // Stop any currently playing sound
+      if (soundRef.current) {
+        await soundRef.current.unloadAsync();
+        soundRef.current = null;
+      }
+      setIsLoading(true);
+      const { sound } = await Audio.Sound.createAsync(
+        { uri: `https://cdn.islamic.network/audio/99-names/${name.id}.mp3` },
+        { shouldPlay: true },
+      );
+      soundRef.current = sound;
+      setIsPlaying(true);
+      setIsLoading(false);
+      sound.setOnPlaybackStatusUpdate((status) => {
+        if (status.isLoaded && status.didJustFinish) {
+          setIsPlaying(false);
+          sound.unloadAsync();
+          soundRef.current = null;
+        }
+      });
+    } catch {
+      setIsLoading(false);
+      setIsPlaying(false);
+    }
+  }, [name]);
+
   if (!name) return null;
 
   const isFav = favorites.has(name.id);
   const prev = names.find((n) => n.id === name.id - 1);
   const next = names.find((n) => n.id === name.id + 1);
 
+  const handleShare = async () => {
+    await Share.share({
+      message: `${name.arabic} - ${name.transliteration}\n${name.meaning}\n\n${name.description}`,
+    });
+  };
+
   return (
     <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.headerButton}>
+          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Name Detail</Text>
+        <TouchableOpacity onPress={handleShare} style={styles.headerButton}>
+          <Ionicons name="share-outline" size={22} color="#FFFFFF" />
+        </TouchableOpacity>
+      </View>
+
       <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
-        {/* Ring ornament */}
-        <View style={styles.ringOuter}>
-          <View style={styles.ringInner}>
-            <Text style={styles.numberText}>{name.id}</Text>
+        {/* Arabic Hero Card */}
+        <View style={styles.heroCard}>
+          {/* Gradient layers */}
+          <View style={styles.gradientBase} />
+          <View style={styles.gradientTop} />
+          <View style={styles.gradientBottom} />
+
+          <View style={styles.heroContent}>
+            <Text style={styles.heroArabic}>{name.arabic}</Text>
+            <Text style={styles.heroTranslit}>{name.transliteration.toUpperCase()}</Text>
+          </View>
+
+          {/* Sound button */}
+          <TouchableOpacity style={styles.soundButton} activeOpacity={0.8} onPress={playAudio}>
+            {isLoading ? (
+              <ActivityIndicator size="small" color="#FFFFFF" />
+            ) : (
+              <Ionicons name={isPlaying ? 'pause' : 'volume-high'} size={24} color="#FFFFFF" />
+            )}
+          </TouchableOpacity>
+        </View>
+
+        {/* Meaning title */}
+        <Text style={styles.meaningTitle}>{name.meaning}</Text>
+
+        {/* Description */}
+        <Text style={styles.description}>{name.description}</Text>
+
+        {/* Info cards row */}
+        <View style={styles.infoRow}>
+          <View style={styles.infoCard}>
+            <Ionicons name="book-outline" size={24} color="#11d452" style={styles.infoIcon} />
+            <Text style={styles.infoLabel}>MENTIONS</Text>
+            <Text style={styles.infoValue}>{name.mentions} Times</Text>
+          </View>
+          <View style={styles.infoCard}>
+            <Ionicons name="sparkles-outline" size={24} color="#11d452" style={styles.infoIcon} />
+            <Text style={styles.infoLabel}>TYPE</Text>
+            <Text style={styles.infoValue}>{name.type}</Text>
           </View>
         </View>
 
-        {/* Arabic name */}
-        <Text style={styles.arabic}>{name.arabic}</Text>
-        <Text style={styles.transliteration}>{name.transliteration}</Text>
-
-        {/* Gold divider */}
-        <View style={styles.divider} />
-
-        {/* Meaning */}
-        <View style={styles.meaningCard}>
-          <Text style={styles.meaningLabel}>MEANING</Text>
-          <Text style={styles.meaningText}>{name.meaning}</Text>
-        </View>
-
-        {/* Description */}
-        <View style={styles.descCard}>
-          <Text style={styles.descText}>{name.description}</Text>
+        {/* Quranic References */}
+        <View style={styles.quranSection}>
+          <View style={styles.quranHeader}>
+            <Text style={styles.quranBadge}>99</Text>
+            <Text style={styles.quranTitle}>Quranic References</Text>
+          </View>
+          {name.quranicRefs && name.quranicRefs.length > 0 ? (
+            name.quranicRefs.map((ref, i) => (
+              <View key={i} style={styles.quranCard}>
+                <Text style={styles.quranArabic}>{ref.arabic}</Text>
+                <Text style={styles.quranTranslation}>{ref.translation}</Text>
+                <Text style={styles.quranSource}>{ref.surah} {ref.ayah}</Text>
+              </View>
+            ))
+          ) : (
+            <Text style={styles.quranText}>
+              This name appears in the Quran and is one of the 99 beautiful names of Allah.
+            </Text>
+          )}
         </View>
 
         {/* Favourite button */}
@@ -50,7 +141,7 @@ export default function NameDetail() {
           style={[styles.favButton, isFav && styles.favButtonActive]}
           onPress={() => toggle(name.id)}
         >
-          <Text style={styles.favButtonText}>
+          <Text style={[styles.favButtonText, isFav && styles.favButtonTextActive]}>
             {isFav ? '♥  Remove from Favourites' : '♡  Add to Favourites'}
           </Text>
         </TouchableOpacity>
@@ -85,110 +176,233 @@ export default function NameDetail() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: '#0d140f',
   },
-  scroll: {
+  /* ─── Header ─── */
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: 100,
-    paddingBottom: spacing.xxl,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.md,
+    paddingTop: Platform.OS === 'ios' ? 56 : spacing.md,
+    paddingBottom: 12,
+    backgroundColor: '#0d140f',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(17,212,82,0.1)',
   },
-  ringOuter: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: colors.gold,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: spacing.lg,
-  },
-  ringInner: {
-    width: 76,
-    height: 76,
-    borderRadius: 38,
-    backgroundColor: colors.card,
+  headerButton: {
+    width: 44,
+    height: 44,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  numberText: {
-    color: colors.gold,
-    fontSize: 22,
+  headerTitle: {
+    fontSize: 18,
+    color: '#FFFFFF',
     fontWeight: '700',
   },
-  arabic: {
+  /* ─── Scroll ─── */
+  scroll: {
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.xxl * 2,
+  },
+  /* ─── Arabic Hero Card ─── */
+  heroCard: {
+    marginTop: spacing.md,
+    borderRadius: radius.xl,
+    borderWidth: 1,
+    borderColor: 'rgba(17,212,82,0.10)',
+    overflow: 'hidden',
+    minHeight: 280,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+    backgroundColor: '#0d140f',
+  },
+  gradientBase: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(17,212,82,0.08)',
+  },
+  gradientTop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '50%',
+    backgroundColor: 'rgba(17,212,82,0.03)',
+  },
+  gradientBottom: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: '50%',
+    backgroundColor: 'rgba(17,212,82,0.15)',
+  },
+  heroContent: {
+    alignItems: 'center',
+    paddingVertical: 48,
+    zIndex: 1,
+  },
+  heroArabic: {
     fontFamily: fonts.arabicBold,
-    fontSize: 48,
-    color: colors.gold,
+    fontSize: 64,
+    color: '#FFFFFF',
     textAlign: 'center',
     writingDirection: 'rtl',
-    marginBottom: spacing.sm,
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 8,
   },
-  transliteration: {
-    fontSize: 18,
-    color: colors.goldLight,
-    fontWeight: '600',
-    letterSpacing: 1,
-    marginBottom: spacing.lg,
+  heroTranslit: {
+    fontSize: 16,
+    color: '#11d452',
+    letterSpacing: 6,
+    marginTop: 12,
+    fontWeight: '700',
   },
-  divider: {
-    width: 80,
-    height: 1,
-    backgroundColor: colors.goldDim,
-    marginBottom: spacing.lg,
+  soundButton: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#11d452',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 2,
+    shadowColor: '#11d452',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 6,
   },
-  meaningCard: {
-    width: '100%',
-    backgroundColor: colors.card,
-    borderRadius: radius.md,
+  /* ─── Meaning ─── */
+  meaningTitle: {
+    fontSize: 30,
+    color: '#f1f5f9',
+    fontWeight: '800',
+    marginTop: 24,
+    marginBottom: 8,
+  },
+  /* ─── Description ─── */
+  description: {
+    fontSize: 16,
+    color: '#94a3b8',
+    lineHeight: 28,
+    marginBottom: 24,
+    textAlign: 'center',
+  },
+  /* ─── Info Cards ─── */
+  infoRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 24,
+  },
+  infoCard: {
+    flex: 1,
+    backgroundColor: 'rgba(17,212,82,0.05)',
+    borderRadius: radius.xl,
     borderWidth: 1,
-    borderColor: colors.cardBorder,
-    padding: spacing.md,
-    marginBottom: spacing.sm,
+    borderColor: 'rgba(17,212,82,0.10)',
+    paddingVertical: 20,
+    paddingHorizontal: 12,
     alignItems: 'center',
   },
-  meaningLabel: {
+  infoIcon: {
+    marginBottom: 8,
+  },
+  infoLabel: {
     fontSize: 10,
-    color: colors.gray,
+    color: 'rgba(241,245,249,0.6)',
     letterSpacing: 2,
-    marginBottom: spacing.xs,
-  },
-  meaningText: {
-    fontSize: 20,
-    color: colors.white,
+    marginBottom: 6,
     fontWeight: '600',
-    textAlign: 'center',
   },
-  descCard: {
-    width: '100%',
-    backgroundColor: colors.backgroundLight,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    marginBottom: spacing.lg,
+  infoValue: {
+    fontSize: 18,
+    color: '#FFFFFF',
+    fontWeight: '800',
   },
-  descText: {
+  /* ─── Quranic Reference ─── */
+  quranSection: {
+    marginBottom: 24,
+  },
+  quranHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    gap: 10,
+  },
+  quranBadge: {
+    fontSize: 18,
+    color: '#d4af37',
+    fontWeight: '800',
+    fontStyle: 'italic',
+  },
+  quranTitle: {
+    fontSize: 20,
+    color: '#f1f5f9',
+    fontWeight: '700',
+  },
+  quranText: {
     fontSize: 15,
-    color: colors.gray,
+    color: '#94a3b8',
     lineHeight: 24,
-    textAlign: 'center',
   },
+  quranCard: {
+    backgroundColor: 'rgba(17,212,82,0.03)',
+    borderWidth: 1,
+    borderColor: 'rgba(17,212,82,0.08)',
+    borderRadius: radius.xl,
+    padding: 16,
+    marginBottom: 10,
+  },
+  quranArabic: {
+    fontFamily: fonts.arabicBold,
+    fontSize: 22,
+    color: '#f1f5f9',
+    textAlign: 'right',
+    writingDirection: 'rtl',
+    lineHeight: 38,
+    marginBottom: 10,
+  },
+  quranTranslation: {
+    fontSize: 14,
+    color: '#94a3b8',
+    fontStyle: 'italic',
+    lineHeight: 22,
+    marginBottom: 10,
+  },
+  quranSource: {
+    fontSize: 13,
+    color: '#11d452',
+    fontWeight: '600',
+  },
+  /* ─── Favourite ─── */
   favButton: {
     borderWidth: 1,
-    borderColor: colors.goldDim,
+    borderColor: 'rgba(17,212,82,0.10)',
     borderRadius: radius.full,
-    paddingVertical: spacing.sm + 2,
-    paddingHorizontal: spacing.xl,
-    marginBottom: spacing.xl,
+    paddingVertical: 14,
+    alignItems: 'center',
+    marginBottom: 24,
+    backgroundColor: 'rgba(17,212,82,0.05)',
   },
   favButtonActive: {
-    backgroundColor: colors.card,
     borderColor: colors.favorite,
+    backgroundColor: '#1A0A0E',
   },
   favButtonText: {
     color: colors.gold,
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '600',
   },
+  favButtonTextActive: {
+    color: colors.favorite,
+  },
+  /* ─── Navigation ─── */
   nav: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -204,11 +418,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   navArrow: {
-    color: colors.goldDim,
+    color: '#11d452',
     fontSize: 18,
   },
   navLabel: {
-    color: colors.gray,
-    fontSize: 12,
+    color: '#94a3b8',
+    fontSize: 13,
   },
 });

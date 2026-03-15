@@ -67,7 +67,9 @@ export function SplashScreenView({ onFinish }: SplashScreenProps) {
         </View>
 
         {/* Title */}
-        <Text style={styles.title}>ASMA UL{'\n'}HUSNA</Text>
+        <Text style={styles.title} adjustsFontSizeToFit numberOfLines={2}>
+          ASMA UL{'\n'}HUSNA
+        </Text>
         <Text style={styles.subtitle}>THE 99 BEAUTIFUL NAMES</Text>
 
         {/* Progress bar */}
@@ -100,6 +102,8 @@ export function SplashScreenView({ onFinish }: SplashScreenProps) {
   );
 }
 
+const CONTENT_WIDTH = width - 48;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -125,7 +129,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 40,
   },
   emblemOuter: {
     width: 180,
@@ -160,12 +163,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'Amiri-Bold',
-    fontSize: 48,
+    fontSize: 44,
     color: colors.gold,
     textAlign: 'center',
     letterSpacing: 6,
-    lineHeight: 58,
+    lineHeight: 56,
     marginTop: 32,
+    width: CONTENT_WIDTH,
   },
   subtitle: {
     fontSize: 13,
@@ -173,9 +177,10 @@ const styles = StyleSheet.create({
     letterSpacing: 4,
     marginTop: 8,
     textAlign: 'center',
+    width: CONTENT_WIDTH,
   },
   progressContainer: {
-    width: '100%',
+    width: CONTENT_WIDTH,
     marginTop: 40,
   },
   progressLabelRow: {
@@ -186,7 +191,7 @@ const styles = StyleSheet.create({
   progressLabel: {
     fontSize: 11,
     color: '#5A8A65',
-    letterSpacing: 3,
+    letterSpacing: 2,
   },
   progressPercent: {
     fontSize: 13,
@@ -207,7 +212,7 @@ const styles = StyleSheet.create({
   quoteContainer: {
     position: 'absolute',
     bottom: 80,
-    paddingHorizontal: 30,
+    width: CONTENT_WIDTH,
   },
   quote: {
     fontFamily: 'Amiri-Regular',

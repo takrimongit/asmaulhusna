@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { colors, fonts, radius, spacing } from '../constants/theme';
 import type { Name } from '../data/names';
 
@@ -28,9 +29,11 @@ export function NameCard({ item, isFavorite, onPress, onToggleFavorite }: Props)
         onPress={onToggleFavorite}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
       >
-        <Text style={[styles.heartIcon, isFavorite && styles.heartActive]}>
-          {isFavorite ? '♥' : '♡'}
-        </Text>
+        <Ionicons
+          name={isFavorite ? 'heart' : 'heart-outline'}
+          size={20}
+          color={isFavorite ? colors.favorite : colors.grayDim}
+        />
       </TouchableOpacity>
     </TouchableOpacity>
   );
@@ -39,7 +42,7 @@ export function NameCard({ item, isFavorite, onPress, onToggleFavorite }: Props)
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.card,
-    borderRadius: radius.md,
+    borderRadius: radius.xl,
     borderWidth: 1,
     borderColor: colors.cardBorder,
     marginHorizontal: spacing.md,
@@ -53,13 +56,13 @@ const styles = StyleSheet.create({
     height: 36,
     borderRadius: radius.full,
     borderWidth: 1,
-    borderColor: colors.goldDim,
+    borderColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: spacing.md,
   },
   numberText: {
-    color: colors.goldDim,
+    color: colors.primary,
     fontSize: 12,
     fontWeight: '600',
   },
@@ -69,14 +72,14 @@ const styles = StyleSheet.create({
   arabic: {
     fontFamily: fonts.arabic,
     fontSize: 22,
-    color: colors.gold,
+    color: colors.white,
     textAlign: 'right',
     marginBottom: 2,
     writingDirection: 'rtl',
   },
   transliteration: {
     fontSize: 13,
-    color: colors.goldLight,
+    color: colors.primary,
     fontWeight: '600',
     letterSpacing: 0.5,
   },
@@ -88,12 +91,5 @@ const styles = StyleSheet.create({
   heart: {
     marginLeft: spacing.sm,
     paddingLeft: spacing.sm,
-  },
-  heartIcon: {
-    fontSize: 20,
-    color: colors.gray,
-  },
-  heartActive: {
-    color: colors.favorite,
   },
 });

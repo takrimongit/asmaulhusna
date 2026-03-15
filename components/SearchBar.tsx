@@ -16,7 +16,7 @@ export function SearchBar({ value, onChangeText }: Props) {
         placeholderTextColor={colors.gray}
         value={value}
         onChangeText={onChangeText}
-        selectionColor={colors.gold}
+        selectionColor={colors.primary}
         returnKeyType="search"
         autoCorrect={false}
         autoCapitalize="none"

@@ -38,8 +38,8 @@ export default function RootLayout() {
       <Stack
         screenOptions={{
           headerStyle: { backgroundColor: colors.background },
-          headerTintColor: colors.gold,
-          headerTitleStyle: { fontWeight: '700', letterSpacing: 1 },
+          headerTintColor: colors.white,
+          headerTitleStyle: { fontWeight: '700' },
           contentStyle: { backgroundColor: colors.background },
           animation: 'slide_from_right',
         }}
@@ -48,9 +48,7 @@ export default function RootLayout() {
         <Stack.Screen
           name="name/[id]"
           options={{
-            title: '',
-            headerBackTitle: 'Back',
-            headerTransparent: true,
+            headerShown: false,
           }}
         />
       </Stack>
