@@ -29,7 +29,6 @@ jobs:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
           UPDATE_JSON=$(eas update \
-            --channel preview \
             --environment preview \
             --message "CI: ${GITHUB_SHA::7}" \
             --non-interactive \
