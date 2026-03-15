@@ -28,12 +28,20 @@ jobs:
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
         run: |
+          set +e
           UPDATE_JSON=$(eas update \
+            --channel preview \
             --environment preview \
+            --platform all \
             --message "CI: ${GITHUB_SHA::7}" \
             --non-interactive \
-            --json)
+            --json 2>&1)
+          EXIT_CODE=$?
           echo "$UPDATE_JSON"
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "::error::eas update failed with exit code $EXIT_CODE"
+            exit $EXIT_CODE
+          fi
           UPDATE_ID=$(echo "$UPDATE_JSON" | jq -r 'if type=="array" then .[0].id else .id end' 2>/dev/null || echo "unknown")
           echo "update_id=$UPDATE_ID" >> $GITHUB_OUTPUT
           echo "Published: $UPDATE_ID"
