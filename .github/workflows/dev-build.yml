@@ -1,0 +1,68 @@
+name: Development Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Platform to build"
+        required: true
+        default: "android"
+        type: choice
+        options:
+          - android
+          - ios
+          - all
+
+jobs:
+  build:
+    name: EAS Development Build (${{ inputs.platform }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Build (Android)
+        if: inputs.platform == 'android' || inputs.platform == 'all'
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas build \
+            --profile development \
+            --platform android \
+            --non-interactive
+
+      - name: Build (iOS)
+        if: inputs.platform == 'ios' || inputs.platform == 'all'
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          eas build \
+            --profile development \
+            --platform ios \
+            --non-interactive
+
+      - name: Notify Telegram
+        if: always()
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          STATUS="${{ job.status }}"
+          SHORT_SHA="${GITHUB_SHA::7}"
+          PLATFORM="${{ inputs.platform }}"
+          MSG="Dev Build (${PLATFORM}) ${STATUS} - ${SHORT_SHA}"
+
+          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -F "chat_id=${CHAT_ID}" \
+            -F "text=${MSG}" || true
