@@ -1,8 +1,6 @@
 export interface QuranicRef {
   surah: string;
   ayah: string;
-  arabic: string;
-  translation: string;
 }
 
 export interface Name {
@@ -26,8 +24,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Fatihah', ayah: '1:1', arabic: 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ', translation: 'In the name of God, the Lord of Mercy, the Giver of Mercy!' },
-      { surah: 'Surah Al-Hashr', ayah: '59:22', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ۖ عَـٰلِمُ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ ۖ هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ', translation: 'He is God: there is no god other than Him. It is He who knows what is hidden as well as what is in the open, He is the Lord of Mercy, the Giver of Mercy.' },
+      { surah: 'Al-Fatihah', ayah: '1:3' },
+      { surah: 'Al-Isra', ayah: '17:110' },
     ],
   },
   {
@@ -39,8 +37,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Fatihah', ayah: '1:1', arabic: 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ', translation: 'In the name of God, the Lord of Mercy, the Giver of Mercy!' },
-      { surah: 'Surah Al-Baqarah', ayah: '2:163', arabic: 'وَإِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ لَّآ إِلَـٰهَ إِلَّا هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ', translation: 'Your God is the one God: there is no god except Him, the Lord of Mercy, the Giver of Mercy.' },
+      { surah: 'Al-Baqarah', ayah: '2:163' },
+      { surah: 'Ali Imran', ayah: '3:31' },
+      { surah: 'An-Nisa', ayah: '4:100' },
+      { surah: 'Al-Maidah', ayah: '5:3' },
     ],
   },
   {
@@ -52,8 +52,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
-      { surah: 'Surah Taha', ayah: '20:114', arabic: 'فَتَعَـٰلَى ٱللَّهُ ٱلْمَلِكُ ٱلْحَقُّ ۗ وَلَا تَعْجَلْ بِٱلْقُرْءَانِ مِن قَبْلِ أَن يُقْضَىٰٓ إِلَيْكَ وَحْيُهُۥ ۖ وَقُل رَّبِّ زِدْنِى عِلْمًا', translation: 'exalted be God, the one who is truly in control. [Prophet], do not rush to recite before the revelation is fully complete but say, ‘Lord, increase me in knowledge!’' },
+      { surah: 'Ta-Ha', ayah: '20:114' },
+      { surah: 'Al-Mu'minun', ayah: '23:116' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
+      { surah: 'Al-Jumu'ah', ayah: '62:1' },
+    ], do not rush to recite before the revelation is fully complete but say, ‘Lord, increase me in knowledge!’' },
     ],
   },
   {
@@ -65,8 +68,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
-      { surah: 'Surah Al-Jumu\'ah', ayah: '62:1', arabic: ' يُسَبِّحُ لِلَّهِ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ٱلْمَلِكِ ٱلْقُدُّوسِ ٱلْعَزِيزِ ٱلْحَكِيمِ', translation: 'Everything in the heavens and earth glorifies God, the Controller, the Holy One, the Almighty, the Wise.' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
+      { surah: 'Al-Jumu'ah', ayah: '62:1' },
     ],
   },
   {
@@ -78,7 +81,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
     ],
   },
   {
@@ -90,7 +93,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
     ],
   },
   {
@@ -102,7 +105,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
     ],
   },
   {
@@ -114,8 +117,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
-      { surah: 'Surah Ali \'Imran', ayah: '3:6', arabic: 'هُوَ ٱلَّذِى يُصَوِّرُكُمْ فِى ٱلْأَرْحَامِ كَيْفَ يَشَآءُ ۚ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ', translation: 'it is He who shapes you all in the womb as He pleases. There is no God but Him, the Mighty, the Wise:' },
+      { surah: 'Ali Imran', ayah: '3:6' },
+      { surah: 'An-Nisa', ayah: '4:158' },
+      { surah: 'At-Tawbah', ayah: '9:40' },
+      { surah: 'Al-Fath', ayah: '48:7' },
     ],
   },
   {
@@ -127,7 +132,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
     ],
   },
   {
@@ -139,7 +144,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:23', arabic: 'هُوَ ٱللَّهُ ٱلَّذِى لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْمَلِكُ ٱلْقُدُّوسُ ٱلسَّلَـٰمُ ٱلْمُؤْمِنُ ٱلْمُهَيْمِنُ ٱلْعَزِيزُ ٱلْجَبَّارُ ٱلْمُتَكَبِّرُ ۚ سُبْحَـٰنَ ٱللَّهِ عَمَّا يُشْرِكُونَ', translation: 'He is God: there is no god other than Him, the Controller, the Holy One, Source of Peace, Granter of Security, Guardian over all, the Almighty, the Compeller, the Truly Great; God is far above anything they consider to be His partner.' },
+      { surah: 'Al-Hashr', ayah: '59:23' },
     ],
   },
   {
@@ -151,8 +156,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:24', arabic: 'هُوَ ٱللَّهُ ٱلْخَـٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ ۚ يُسَبِّحُ لَهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۖ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ', translation: 'He is God: the Creator, the Originator, the Shaper. The best names belong to Him. Everything in the heavens and earth glorifies Him: He is the Almighty, the Wise.' },
-      { surah: 'Surah Al-An\'am', ayah: '6:102', arabic: 'ذَٰلِكُمُ ٱللَّهُ رَبُّكُمْ ۖ لَآ إِلَـٰهَ إِلَّا هُوَ ۖ خَـٰلِقُ كُلِّ شَىْءٍ فَٱعْبُدُوهُ ۚ وَهُوَ عَلَىٰ كُلِّ شَىْءٍ وَكِيلٌ', translation: 'This is God, your Lord, there is no God but Him, the Creator of all things, so worship Him; He is in charge of everything.' },
+      { surah: 'Al-An'am', ayah: '6:102' },
+      { surah: 'Ar-Ra'd', ayah: '13:16' },
+      { surah: 'Az-Zumar', ayah: '39:62' },
+      { surah: 'Ghafir', ayah: '40:62' },
+      { surah: 'Al-Hashr', ayah: '59:24' },
     ],
   },
   {
@@ -164,7 +172,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:24', arabic: 'هُوَ ٱللَّهُ ٱلْخَـٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ ۚ يُسَبِّحُ لَهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۖ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ', translation: 'He is God: the Creator, the Originator, the Shaper. The best names belong to Him. Everything in the heavens and earth glorifies Him: He is the Almighty, the Wise.' },
+      { surah: 'Al-Hashr', ayah: '59:24' },
     ],
   },
   {
@@ -176,7 +184,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Hashr', ayah: '59:24', arabic: 'هُوَ ٱللَّهُ ٱلْخَـٰلِقُ ٱلْبَارِئُ ٱلْمُصَوِّرُ ۖ لَهُ ٱلْأَسْمَآءُ ٱلْحُسْنَىٰ ۚ يُسَبِّحُ لَهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۖ وَهُوَ ٱلْعَزِيزُ ٱلْحَكِيمُ', translation: 'He is God: the Creator, the Originator, the Shaper. The best names belong to Him. Everything in the heavens and earth glorifies Him: He is the Almighty, the Wise.' },
+      { surah: 'Al-Hashr', ayah: '59:24' },
     ],
   },
   {
@@ -188,8 +196,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Nuh', ayah: '71:10', arabic: 'فَقُلْتُ ٱسْتَغْفِرُوا۟ رَبَّكُمْ إِنَّهُۥ كَانَ غَفَّارًا', translation: 'I said, “Ask forgiveness of your Lord: He is ever forgiving.' },
-      { surah: 'Surah Sad', ayah: '38:66', arabic: 'رَبُّ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ وَمَا بَيْنَهُمَا ٱلْعَزِيزُ ٱلْغَفَّـٰرُ', translation: 'Lord of the heavens and earth and everything between, the Almighty, the Most Forgiving.’' },
+      { surah: 'Ta-Ha', ayah: '20:82' },
+      { surah: 'Sad', ayah: '38:66' },
+      { surah: 'Az-Zumar', ayah: '39:5' },
+      { surah: 'Ghafir', ayah: '40:42' },
+      { surah: 'Nuh', ayah: '71:10' },
     ],
   },
   {
@@ -201,7 +212,12 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ar-Ra\'d', ayah: '13:16', arabic: 'قُلْ مَن رَّبُّ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ قُلِ ٱللَّهُ ۚ قُلْ أَفَٱتَّخَذْتُم مِّن دُونِهِۦٓ أَوْلِيَآءَ لَا يَمْلِكُونَ لِأَنفُسِهِمْ نَفْعًا وَلَا ضَرًّا ۚ قُلْ هَلْ يَسْتَوِى ٱلْأَعْمَىٰ وَٱلْبَصِيرُ أَمْ هَلْ تَسْتَوِى ٱلظُّلُمَـٰتُ وَٱلنُّورُ ۗ أَمْ جَعَلُوا۟ لِلَّهِ شُرَكَآءَ خَلَقُوا۟ كَخَلْقِهِۦ فَتَشَـٰبَهَ ٱلْخَلْقُ عَلَيْهِمْ ۚ قُلِ ٱللَّهُ خَـٰلِقُ كُلِّ شَىْءٍ وَهُوَ ٱلْوَٰحِدُ ٱلْقَهَّـٰرُ', translation: 'Say [Prophet], ‘Who is Lord of the heavens and the earth?’ Say, ‘God.’ Say, ‘Why do you take protectors other than Him, who can neither benefit nor harm even themselves?’ Say, ‘Are the blind equal to those who can see? And are the depths of darkness equal to the light?’ Have the partners they assign to God created anything like His creation so that their creation is indistinguishable from His? Say, ‘God is the Creator of all things: He is the One, the All Compelling.’' },
+      { surah: 'Ar-Ra'd', ayah: '13:16' },
+      { surah: 'Ibrahim', ayah: '14:48' },
+      { surah: 'Sad', ayah: '38:65' },
+      { surah: 'Az-Zumar', ayah: '39:4' },
+      { surah: 'Ghafir', ayah: '40:16' },
+    ], ‘Who is Lord of the heavens and the earth?’ Say, ‘God.’ Say, ‘Why do you take protectors other than Him, who can neither benefit nor harm even themselves?’ Say, ‘Are the blind equal to those who can see? And are the depths of darkness equal to the light?’ Have the partners they assign to God created anything like His creation so that their creation is indistinguishable from His? Say, ‘God is the Creator of all things: He is the One, the All Compelling.’' },
       { surah: 'Surah Sad', ayah: '38:65', arabic: 'قُلْ إِنَّمَآ أَنَا۠ مُنذِرٌ ۖ وَمَا مِنْ إِلَـٰهٍ إِلَّا ٱللَّهُ ٱلْوَٰحِدُ ٱلْقَهَّارُ', translation: '[Prophet] say, ‘I am only here to give warning. There is no god but God the One, the All Powerful,' },
     ],
   },
@@ -214,8 +230,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:8', arabic: 'رَبَّنَا لَا تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِن لَّدُنكَ رَحْمَةً ۚ إِنَّكَ أَنتَ ٱلْوَهَّابُ', translation: '‘Our Lord, do not let our hearts deviate after You have guided us. Grant us Your mercy: You are the Ever Giving.' },
-      { surah: 'Surah Sad', ayah: '38:35', arabic: 'قَالَ رَبِّ ٱغْفِرْ لِى وَهَبْ لِى مُلْكًا لَّا يَنۢبَغِى لِأَحَدٍ مِّنۢ بَعْدِىٓ ۖ إِنَّكَ أَنتَ ٱلْوَهَّابُ', translation: 'He turned to Us and prayed: ‘Lord forgive me! Grant me such power as no one after me will have- You are the Most Generous Provider.’' },
+      { surah: 'Ali Imran', ayah: '3:8' },
+      { surah: 'Sad', ayah: '38:9' },
+      { surah: 'Sad', ayah: '38:35' },
     ],
   },
   {
@@ -227,7 +244,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Adh-Dhariyat', ayah: '51:58', arabic: 'إِنَّ ٱللَّهَ هُوَ ٱلرَّزَّاقُ ذُو ٱلْقُوَّةِ ٱلْمَتِينُ', translation: 'God is the Provider, the Lord of Power, the Ever Mighty.' },
+      { surah: 'Adh-Dhariyat', ayah: '51:58' },
     ],
   },
   {
@@ -239,7 +256,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Saba', ayah: '34:26', arabic: 'قُلْ يَجْمَعُ بَيْنَنَا رَبُّنَا ثُمَّ يَفْتَحُ بَيْنَنَا بِٱلْحَقِّ وَهُوَ ٱلْفَتَّاحُ ٱلْعَلِيمُ', translation: 'Say, ‘Our Lord will gather us together, then He will judge justly between us; He alone is the All Knowing Judge.’' },
+      { surah: 'Saba', ayah: '34:26' },
     ],
   },
   {
@@ -251,8 +268,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:29', arabic: 'هُوَ ٱلَّذِى خَلَقَ لَكُم مَّا فِى ٱلْأَرْضِ جَمِيعًا ثُمَّ ٱسْتَوَىٰٓ إِلَى ٱلسَّمَآءِ فَسَوَّىٰهُنَّ سَبْعَ سَمَـٰوَٰتٍ ۚ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ', translation: 'It was He who created all that is on the earth for you, then turned to the sky and made the seven heavens; it is He who has knowledge of all things.' },
-      { surah: 'Surah Al-An\'am', ayah: '6:13', arabic: '۞ وَلَهُۥ مَا سَكَنَ فِى ٱلَّيْلِ وَٱلنَّهَارِ ۚ وَهُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ', translation: 'All that rests by night or by day belongs to Him. He is the All Hearing, the All Knowing.’' },
+      { surah: 'Al-Baqarah', ayah: '2:158' },
+      { surah: 'Ali Imran', ayah: '3:92' },
+      { surah: 'An-Nisa', ayah: '4:35' },
+      { surah: 'An-Nur', ayah: '24:41' },
+      { surah: 'Al-Ahzab', ayah: '33:40' },
     ],
   },
   {
@@ -264,7 +284,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:245', arabic: 'مَّن ذَا ٱلَّذِى يُقْرِضُ ٱللَّهَ قَرْضًا حَسَنًا فَيُضَـٰعِفَهُۥ لَهُۥٓ أَضْعَافًا كَثِيرَةً ۚ وَٱللَّهُ يَقْبِضُ وَيَبْصُۜطُ وَإِلَيْهِ تُرْجَعُونَ', translation: 'Who will give God a good loan, which He will increase for him many times over? It is God who withholds and God who gives abundantly, and it is to Him that you will return.' },
+      { surah: 'Al-Baqarah', ayah: '2:245' },
     ],
   },
   {
@@ -276,7 +296,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:245', arabic: 'مَّن ذَا ٱلَّذِى يُقْرِضُ ٱللَّهَ قَرْضًا حَسَنًا فَيُضَـٰعِفَهُۥ لَهُۥٓ أَضْعَافًا كَثِيرَةً ۚ وَٱللَّهُ يَقْبِضُ وَيَبْصُۜطُ وَإِلَيْهِ تُرْجَعُونَ', translation: 'Who will give God a good loan, which He will increase for him many times over? It is God who withholds and God who gives abundantly, and it is to Him that you will return.' },
+      { surah: 'Al-Baqarah', ayah: '2:245' },
     ],
   },
   {
@@ -288,7 +308,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Waqi\'ah', ayah: '56:3', arabic: 'خَافِضَةٌ رَّافِعَةٌ', translation: 'bringing low and raising high.' },
+      { surah: 'At-Tin', ayah: '95:5' },
     ],
   },
   {
@@ -300,8 +320,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Waqi\'ah', ayah: '56:3', arabic: 'خَافِضَةٌ رَّافِعَةٌ', translation: 'bringing low and raising high.' },
-      { surah: 'Surah Al-Mujadila', ayah: '58:11', arabic: 'يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓا۟ إِذَا قِيلَ لَكُمْ تَفَسَّحُوا۟ فِى ٱلْمَجَـٰلِسِ فَٱفْسَحُوا۟ يَفْسَحِ ٱللَّهُ لَكُمْ ۖ وَإِذَا قِيلَ ٱنشُزُوا۟ فَٱنشُزُوا۟ يَرْفَعِ ٱللَّهُ ٱلَّذِينَ ءَامَنُوا۟ مِنكُمْ وَٱلَّذِينَ أُوتُوا۟ ٱلْعِلْمَ دَرَجَـٰتٍ ۚ وَٱللَّهُ بِمَا تَعْمَلُونَ خَبِيرٌ', translation: 'You who believe, if you are told to make room for one another in your assemblies, then do so, and God will make room for you, and if you are told to rise up, do so: God will raise up, by many degrees, those of you who believe and those who have been given knowledge: He is fully aware of what you do.' },
+      { surah: 'Al-Mujadila', ayah: '58:11' },
+      { surah: 'Al-An'am', ayah: '6:83' },
     ],
   },
   {
@@ -313,7 +333,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:26', arabic: 'قُلِ ٱللَّهُمَّ مَـٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَشَآءُ وَتَنزِعُ ٱلْمُلْكَ مِمَّن تَشَآءُ وَتُعِزُّ مَن تَشَآءُ وَتُذِلُّ مَن تَشَآءُ ۖ بِيَدِكَ ٱلْخَيْرُ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ', translation: 'Say, ‘God, holder of all control, You give control to whoever You will and remove it from whoever You will; You elevate whoever You will and humble whoever You will. All that is good lies in Your hand: You have power over everything.' },
+      { surah: 'Ali Imran', ayah: '3:26' },
     ],
   },
   {
@@ -325,7 +345,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:26', arabic: 'قُلِ ٱللَّهُمَّ مَـٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَشَآءُ وَتَنزِعُ ٱلْمُلْكَ مِمَّن تَشَآءُ وَتُعِزُّ مَن تَشَآءُ وَتُذِلُّ مَن تَشَآءُ ۖ بِيَدِكَ ٱلْخَيْرُ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ', translation: 'Say, ‘God, holder of all control, You give control to whoever You will and remove it from whoever You will; You elevate whoever You will and humble whoever You will. All that is good lies in Your hand: You have power over everything.' },
+      { surah: 'Ali Imran', ayah: '3:26' },
     ],
   },
   {
@@ -337,7 +357,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:127', arabic: 'وَإِذْ يَرْفَعُ إِبْرَٰهِـۧمُ ٱلْقَوَاعِدَ مِنَ ٱلْبَيْتِ وَإِسْمَـٰعِيلُ رَبَّنَا تَقَبَّلْ مِنَّآ ۖ إِنَّكَ أَنتَ ٱلسَّمِيعُ ٱلْعَلِيمُ', translation: 'As Abraham and Ishmael built up the foundations of the House [they prayed], ‘Our Lord, accept [this] from us. You are the All Hearing, the All Knowing.' },
+      { surah: 'Al-Baqarah', ayah: '2:127' },
+      { surah: 'Al-Baqarah', ayah: '2:256' },
+      { surah: 'Al-Anfal', ayah: '8:17' },
+      { surah: 'Al-Hujurat', ayah: '49:1' },
+    ], ‘Our Lord, accept [this] from us. You are the All Hearing, the All Knowing.' },
       { surah: 'Surah Al-Baqarah', ayah: '2:256', arabic: 'لَآ إِكْرَاهَ فِى ٱلدِّينِ ۖ قَد تَّبَيَّنَ ٱلرُّشْدُ مِنَ ٱلْغَىِّ ۚ فَمَن يَكْفُرْ بِٱلطَّـٰغُوتِ وَيُؤْمِنۢ بِٱللَّهِ فَقَدِ ٱسْتَمْسَكَ بِٱلْعُرْوَةِ ٱلْوُثْقَىٰ لَا ٱنفِصَامَ لَهَا ۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ', translation: 'There is no compulsion in religion: true guidance has become distinct from error, so whoever rejects false gods and believes in God has grasped the firmest hand-hold, one that will never break. God is all hearing and all knowing.' },
     ],
   },
@@ -350,8 +374,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Isra', ayah: '17:1', arabic: ' سُبْحَـٰنَ ٱلَّذِىٓ أَسْرَىٰ بِعَبْدِهِۦ لَيْلًا مِّنَ ٱلْمَسْجِدِ ٱلْحَرَامِ إِلَى ٱلْمَسْجِدِ ٱلْأَقْصَا ٱلَّذِى بَـٰرَكْنَا حَوْلَهُۥ لِنُرِيَهُۥ مِنْ ءَايَـٰتِنَآ ۚ إِنَّهُۥ هُوَ ٱلسَّمِيعُ ٱلْبَصِيرُ', translation: 'Glory to Him who made His servant travel by night from the sacred place of worship to the furthest place of worship, whose surroundings We have blessed, to show him some of Our signs: He alone is the All Hearing, the All Seeing.' },
-      { surah: 'Surah Ash-Shuraa', ayah: '42:11', arabic: 'فَاطِرُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ جَعَلَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَٰجًا وَمِنَ ٱلْأَنْعَـٰمِ أَزْوَٰجًا ۖ يَذْرَؤُكُمْ فِيهِ ۚ لَيْسَ كَمِثْلِهِۦ شَىْءٌ ۖ وَهُوَ ٱلسَّمِيعُ ٱلْبَصِيرُ', translation: 'the Creator of the heavens and earth.’ He made mates for you from among yourselves––and for the animals too––so that you may multiply. There is nothing like Him: He is the All Hearing, the All Seeing.' },
+      { surah: 'An-Nisa', ayah: '4:58' },
+      { surah: 'Al-Isra', ayah: '17:1' },
+      { surah: 'Ash-Shura', ayah: '42:11' },
+      { surah: 'Ash-Shura', ayah: '42:27' },
     ],
   },
   {
@@ -363,7 +389,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-An\'am', ayah: '6:114', arabic: 'أَفَغَيْرَ ٱللَّهِ أَبْتَغِى حَكَمًا وَهُوَ ٱلَّذِىٓ أَنزَلَ إِلَيْكُمُ ٱلْكِتَـٰبَ مُفَصَّلًا ۚ وَٱلَّذِينَ ءَاتَيْنَـٰهُمُ ٱلْكِتَـٰبَ يَعْلَمُونَ أَنَّهُۥ مُنَزَّلٌ مِّن رَّبِّكَ بِٱلْحَقِّ ۖ فَلَا تَكُونَنَّ مِنَ ٱلْمُمْتَرِينَ', translation: '[Say], ‘Shall I seek any judge other than God, when it is He who has sent down for you [people] the Scripture, clearly explained?’ Those to whom We gave the Scripture know that this [Quran] is revealed by your Lord [Prophet] with the truth, so do not be one of those who doubt.' },
+      { surah: 'Al-Hajj', ayah: '22:69' },
+    ], ‘Shall I seek any judge other than God, when it is He who has sent down for you [people] the Scripture, clearly explained?’ Those to whom We gave the Scripture know that this [Quran] is revealed by your Lord [Prophet] with the truth, so do not be one of those who doubt.' },
       { surah: 'Surah Ghafir', ayah: '40:48', arabic: 'قَالَ ٱلَّذِينَ ٱسْتَكْبَرُوٓا۟ إِنَّا كُلٌّ فِيهَآ إِنَّ ٱللَّهَ قَدْ حَكَمَ بَيْنَ ٱلْعِبَادِ', translation: 'but they will say, ‘We are all in this together. God has judged between His creatures.’' },
     ],
   },
@@ -376,8 +403,7 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-An\'am', ayah: '6:115', arabic: 'وَتَمَّتْ كَلِمَتُ رَبِّكَ صِدْقًا وَعَدْلًا ۚ لَّا مُبَدِّلَ لِكَلِمَـٰتِهِۦ ۚ وَهُوَ ٱلسَّمِيعُ ٱلْعَلِيمُ', translation: 'The word of your Lord is complete in its truth and justice. No one can change His words: He is the All Hearing, the All Knowing.' },
-      { surah: 'Surah Al-Anbya', ayah: '21:47', arabic: 'وَنَضَعُ ٱلْمَوَٰزِينَ ٱلْقِسْطَ لِيَوْمِ ٱلْقِيَـٰمَةِ فَلَا تُظْلَمُ نَفْسٌ شَيْـًٔا ۖ وَإِن كَانَ مِثْقَالَ حَبَّةٍ مِّنْ خَرْدَلٍ أَتَيْنَا بِهَا ۗ وَكَفَىٰ بِنَا حَـٰسِبِينَ', translation: 'We will set up scales of justice for the Day of Resurrection so that no one can be wronged in the least, and if there should be even the weight of a mustard seed, We shall bring it out- We take excellent account.' },
+      { surah: 'Al-An'am', ayah: '6:115' },
     ],
   },
   {
@@ -389,8 +415,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-An\'am', ayah: '6:103', arabic: 'لَّا تُدْرِكُهُ ٱلْأَبْصَـٰرُ وَهُوَ يُدْرِكُ ٱلْأَبْصَـٰرَ ۖ وَهُوَ ٱللَّطِيفُ ٱلْخَبِيرُ', translation: 'No vision can take Him in, but He takes in all vision. He is the All Subtle, the All Aware.' },
-      { surah: 'Surah Al-Mulk', ayah: '67:14', arabic: 'أَلَا يَعْلَمُ مَنْ خَلَقَ وَهُوَ ٱللَّطِيفُ ٱلْخَبِيرُ', translation: 'How could He who created not know His own creation, when He is the Most Subtle, the All Aware?' },
+      { surah: 'Al-An'am', ayah: '6:103' },
+      { surah: 'Al-Hajj', ayah: '22:63' },
+      { surah: 'Luqman', ayah: '31:16' },
+      { surah: 'Al-Ahzab', ayah: '33:34' },
     ],
   },
   {
@@ -402,8 +430,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-An\'am', ayah: '6:18', arabic: 'وَهُوَ ٱلْقَاهِرُ فَوْقَ عِبَادِهِۦ ۚ وَهُوَ ٱلْحَكِيمُ ٱلْخَبِيرُ', translation: 'He is the Supreme Master over His creatures, the All Wise, the All Aware.' },
-      { surah: 'Surah Al-Munafiqun', ayah: '63:11', arabic: 'وَلَن يُؤَخِّرَ ٱللَّهُ نَفْسًا إِذَا جَآءَ أَجَلُهَا ۚ وَٱللَّهُ خَبِيرٌۢ بِمَا تَعْمَلُونَ', translation: 'God does not reprieve a soul when its turn comes: God is fully aware of what you do.' },
+      { surah: 'Al-An'am', ayah: '6:18' },
+      { surah: 'Al-Isra', ayah: '17:30' },
+      { surah: 'Al-Hujurat', ayah: '49:13' },
+      { surah: 'Al-Hashr', ayah: '59:18' },
     ],
   },
   {
@@ -415,8 +445,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:225', arabic: 'لَّا يُؤَاخِذُكُمُ ٱللَّهُ بِٱللَّغْوِ فِىٓ أَيْمَـٰنِكُمْ وَلَـٰكِن يُؤَاخِذُكُم بِمَا كَسَبَتْ قُلُوبُكُمْ ۗ وَٱللَّهُ غَفُورٌ حَلِيمٌ', translation: 'He will not call you to account for oaths you have uttered unintentionally, but He will call you to account for what you mean in your hearts. God is most forgiving and forbearing.' },
-      { surah: 'Surah Al-Baqarah', ayah: '2:235', arabic: 'وَلَا جُنَاحَ عَلَيْكُمْ فِيمَا عَرَّضْتُم بِهِۦ مِنْ خِطْبَةِ ٱلنِّسَآءِ أَوْ أَكْنَنتُمْ فِىٓ أَنفُسِكُمْ ۚ عَلِمَ ٱللَّهُ أَنَّكُمْ سَتَذْكُرُونَهُنَّ وَلَـٰكِن لَّا تُوَاعِدُوهُنَّ سِرًّا إِلَّآ أَن تَقُولُوا۟ قَوْلًا مَّعْرُوفًا ۚ وَلَا تَعْزِمُوا۟ عُقْدَةَ ٱلنِّكَاحِ حَتَّىٰ يَبْلُغَ ٱلْكِتَـٰبُ أَجَلَهُۥ ۚ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ يَعْلَمُ مَا فِىٓ أَنفُسِكُمْ فَٱحْذَرُوهُ ۚ وَٱعْلَمُوٓا۟ أَنَّ ٱللَّهَ غَفُورٌ حَلِيمٌ', translation: 'You will not be blamed whether you give a hint that you wish to marry these women, or keep it to yourselves- God knows that you intend to propose to them. Do not make a secret arrangement with them; speak to them honourably and do not confirm the marriage tie until the prescribed period reaches its end. Remember that God knows what is in your souls, so be mindful of Him. Remember that God is most forgiving and forbearing.' },
+      { surah: 'Al-Baqarah', ayah: '2:235' },
+      { surah: 'Al-Isra', ayah: '17:44' },
+      { surah: 'Al-Hajj', ayah: '22:59' },
+      { surah: 'Fatir', ayah: '35:41' },
     ],
   },
   {
@@ -428,8 +460,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:255', arabic: 'ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ', translation: 'God: there is no god but Him, the Ever Living, the Ever Watchful.Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.' },
-      { surah: 'Surah Al-Waqi\'ah', ayah: '56:96', arabic: 'فَسَبِّحْ بِٱسْمِ رَبِّكَ ٱلْعَظِيمِ', translation: '[Prophet], glorify the name of your Lord the Supreme.' },
+      { surah: 'Al-Baqarah', ayah: '2:255' },
+      { surah: 'Ash-Shura', ayah: '42:4' },
+      { surah: 'Al-Waqi'ah', ayah: '56:96' },
+    ], glorify the name of your Lord the Supreme.' },
     ],
   },
   {
@@ -441,8 +475,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:173', arabic: 'إِنَّمَا حَرَّمَ عَلَيْكُمُ ٱلْمَيْتَةَ وَٱلدَّمَ وَلَحْمَ ٱلْخِنزِيرِ وَمَآ أُهِلَّ بِهِۦ لِغَيْرِ ٱللَّهِ ۖ فَمَنِ ٱضْطُرَّ غَيْرَ بَاغٍ وَلَا عَادٍ فَلَآ إِثْمَ عَلَيْهِ ۚ إِنَّ ٱللَّهَ غَفُورٌ رَّحِيمٌ', translation: 'He has only forbidden you carrion, blood, pig’s meat, and animals over which any name other than God’s has been invoked. But if anyone is forced to eat such things by hunger, rather than desire or excess, he commits no sin: God is most merciful and forgiving.' },
-      { surah: 'Surah An-Nisa', ayah: '4:152', arabic: 'وَٱلَّذِينَ ءَامَنُوا۟ بِٱللَّهِ وَرُسُلِهِۦ وَلَمْ يُفَرِّقُوا۟ بَيْنَ أَحَدٍ مِّنْهُمْ أُو۟لَـٰٓئِكَ سَوْفَ يُؤْتِيهِمْ أُجُورَهُمْ ۗ وَكَانَ ٱللَّهُ غَفُورًا رَّحِيمًا', translation: 'But God will give [due] rewards to those who believe in Him and His messengers and make no distinction between any of them. God is most forgiving and merciful.' },
+      { surah: 'Al-Baqarah', ayah: '2:173' },
+      { surah: 'Al-Anfal', ayah: '8:69' },
+      { surah: 'An-Nahl', ayah: '16:110' },
+      { surah: 'Fussilat', ayah: '41:32' },
     ],
   },
   {
@@ -454,8 +490,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Fatir', ayah: '35:30', arabic: 'لِيُوَفِّيَهُمْ أُجُورَهُمْ وَيَزِيدَهُم مِّن فَضْلِهِۦٓ ۚ إِنَّهُۥ غَفُورٌ شَكُورٌ', translation: 'He will repay them in full, and give them extra from His bounty. He is most forgiving, most appreciative.' },
-      { surah: 'Surah Fatir', ayah: '35:34', arabic: 'وَقَالُوا۟ ٱلْحَمْدُ لِلَّهِ ٱلَّذِىٓ أَذْهَبَ عَنَّا ٱلْحَزَنَ ۖ إِنَّ رَبَّنَا لَغَفُورٌ شَكُورٌ', translation: 'They will say, ‘Praise be to God, who has separated us from all sorrow! Our Lord is truly most forgiving, most appreciative:' },
+      { surah: 'Fatir', ayah: '35:30' },
+      { surah: 'Fatir', ayah: '35:34' },
+      { surah: 'Ash-Shura', ayah: '42:23' },
+      { surah: 'At-Taghabun', ayah: '64:17' },
     ],
   },
   {
@@ -467,8 +505,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:255', arabic: 'ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ', translation: 'God: there is no god but Him, the Ever Living, the Ever Watchful.Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.' },
-      { surah: 'Surah An-Nisa', ayah: '4:34', arabic: 'ٱلرِّجَالُ قَوَّٰمُونَ عَلَى ٱلنِّسَآءِ بِمَا فَضَّلَ ٱللَّهُ بَعْضَهُمْ عَلَىٰ بَعْضٍ وَبِمَآ أَنفَقُوا۟ مِنْ أَمْوَٰلِهِمْ ۚ فَٱلصَّـٰلِحَـٰتُ قَـٰنِتَـٰتٌ حَـٰفِظَـٰتٌ لِّلْغَيْبِ بِمَا حَفِظَ ٱللَّهُ ۚ وَٱلَّـٰتِى تَخَافُونَ نُشُوزَهُنَّ فَعِظُوهُنَّ وَٱهْجُرُوهُنَّ فِى ٱلْمَضَاجِعِ وَٱضْرِبُوهُنَّ ۖ فَإِنْ أَطَعْنَكُمْ فَلَا تَبْغُوا۟ عَلَيْهِنَّ سَبِيلًا ۗ إِنَّ ٱللَّهَ كَانَ عَلِيًّا كَبِيرًا', translation: 'Husbands should take good care of their wives, with [the bounties] God has given to some more than others and with what they spend out of their own money. Righteous wives are devout and guard what God would have them guard in their husbands’ absence. If you fear high-handedness from your wives, remind them [of the teachings of God], then ignore them when you go to bed, then hit them.If they obey you, you have no right to act against them: God is most high and great.' },
+      { surah: 'An-Nisa', ayah: '4:34' },
+      { surah: 'Luqman', ayah: '31:30' },
+      { surah: 'Ash-Shura', ayah: '42:4' },
+      { surah: 'Ash-Shura', ayah: '42:51' },
+    ], then ignore them when you go to bed, then hit them.If they obey you, you have no right to act against them: God is most high and great.' },
     ],
   },
   {
@@ -480,8 +521,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ar-Ra\'d', ayah: '13:9', arabic: 'عَـٰلِمُ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ ٱلْكَبِيرُ ٱلْمُتَعَالِ', translation: 'He knows what is not seen as well as what is seen; He is the Great, the Most High.' },
-      { surah: 'Surah Al-Hajj', ayah: '22:62', arabic: 'ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّ مَا يَدْعُونَ مِن دُونِهِۦ هُوَ ٱلْبَـٰطِلُ وَأَنَّ ٱللَّهَ هُوَ ٱلْعَلِىُّ ٱلْكَبِيرُ', translation: 'So it will be, because it is God alone who is the Truth, and whatever else they invoke is sheer falsehood: it is God who is the Most High, the Most Great.' },
+      { surah: 'Ar-Ra'd', ayah: '13:9' },
+      { surah: 'Al-Hajj', ayah: '22:62' },
+      { surah: 'Luqman', ayah: '31:30' },
     ],
   },
   {
@@ -493,8 +535,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Hud', ayah: '11:57', arabic: 'فَإِن تَوَلَّوْا۟ فَقَدْ أَبْلَغْتُكُم مَّآ أُرْسِلْتُ بِهِۦٓ إِلَيْكُمْ ۚ وَيَسْتَخْلِفُ رَبِّى قَوْمًا غَيْرَكُمْ وَلَا تَضُرُّونَهُۥ شَيْـًٔا ۚ إِنَّ رَبِّى عَلَىٰ كُلِّ شَىْءٍ حَفِيظٌ', translation: 'But if you turn away, then I have conveyed the message with which I was sent to you, and my Lord will bring along another people in your place. You cannot do Him any harm: it is my Lord who protects everything.’' },
-      { surah: 'Surah Saba', ayah: '34:21', arabic: 'وَمَا كَانَ لَهُۥ عَلَيْهِم مِّن سُلْطَـٰنٍ إِلَّا لِنَعْلَمَ مَن يُؤْمِنُ بِٱلْـَٔاخِرَةِ مِمَّنْ هُوَ مِنْهَا فِى شَكٍّ ۗ وَرَبُّكَ عَلَىٰ كُلِّ شَىْءٍ حَفِيظٌ', translation: 'even though he had no authority over them. But [We aim] to distinguish those who believe in the life to come from those who doubt it: [Prophet], your Lord observes everything.' },
+      { surah: 'Hud', ayah: '11:57' },
+      { surah: 'Saba', ayah: '34:21' },
+      { surah: 'Ash-Shura', ayah: '42:6' },
+    ], your Lord observes everything.' },
     ],
   },
   {
@@ -506,7 +550,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah An-Nisa', ayah: '4:85', arabic: 'مَّن يَشْفَعْ شَفَـٰعَةً حَسَنَةً يَكُن لَّهُۥ نَصِيبٌ مِّنْهَا ۖ وَمَن يَشْفَعْ شَفَـٰعَةً سَيِّئَةً يَكُن لَّهُۥ كِفْلٌ مِّنْهَا ۗ وَكَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ مُّقِيتًا', translation: 'Whoever speaks for a good cause will share in its benefits and whoever speaks for a bad cause will share in its burden: God controls everything.' },
+      { surah: 'An-Nisa', ayah: '4:85' },
     ],
   },
   {
@@ -518,8 +562,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah An-Nisa', ayah: '4:6', arabic: 'وَٱبْتَلُوا۟ ٱلْيَتَـٰمَىٰ حَتَّىٰٓ إِذَا بَلَغُوا۟ ٱلنِّكَاحَ فَإِنْ ءَانَسْتُم مِّنْهُمْ رُشْدًا فَٱدْفَعُوٓا۟ إِلَيْهِمْ أَمْوَٰلَهُمْ ۖ وَلَا تَأْكُلُوهَآ إِسْرَافًا وَبِدَارًا أَن يَكْبَرُوا۟ ۚ وَمَن كَانَ غَنِيًّا فَلْيَسْتَعْفِفْ ۖ وَمَن كَانَ فَقِيرًا فَلْيَأْكُلْ بِٱلْمَعْرُوفِ ۚ فَإِذَا دَفَعْتُمْ إِلَيْهِمْ أَمْوَٰلَهُمْ فَأَشْهِدُوا۟ عَلَيْهِمْ ۚ وَكَفَىٰ بِٱللَّهِ حَسِيبًا', translation: 'Test orphans until they reach marriageable age; then, if you find they have sound judgement, hand over their property to them. Do not consume it hastily before they come of age: if the guardian is well off he should abstain from the orphan’s property, and if he is poor he should use only what is fair. When you give them their property, call witnesses in; but God takes full account of everything you do.' },
-      { surah: 'Surah Al-Ahzab', ayah: '33:39', arabic: 'ٱلَّذِينَ يُبَلِّغُونَ رِسَـٰلَـٰتِ ٱللَّهِ وَيَخْشَوْنَهُۥ وَلَا يَخْشَوْنَ أَحَدًا إِلَّا ٱللَّهَ ۗ وَكَفَىٰ بِٱللَّهِ حَسِيبًا', translation: '[and with all] those who deliver God’s messages and fear only Him and no other: God’s reckoning is enough.' },
+      { surah: 'An-Nisa', ayah: '4:6' },
+      { surah: 'An-Nisa', ayah: '4:86' },
+      { surah: 'Al-Ahzab', ayah: '33:39' },
     ],
   },
   {
@@ -531,8 +576,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ar-Rahman', ayah: '55:27', arabic: 'وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ', translation: 'all that remains is the Face of your Lord, full of majesty, bestowing honour.' },
-      { surah: 'Surah Ar-Rahman', ayah: '55:78', arabic: 'تَبَـٰرَكَ ٱسْمُ رَبِّكَ ذِى ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ', translation: 'Blessed is the name of your Lord, full of majesty, bestowing honour.' },
+      { surah: 'Ar-Rahman', ayah: '55:27' },
+      { surah: 'Az-Zumar', ayah: '39:14' },
+      { surah: 'Al-A'raf', ayah: '7:143' },
     ],
   },
   {
@@ -544,8 +590,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah An-Naml', ayah: '27:40', arabic: 'قَالَ ٱلَّذِى عِندَهُۥ عِلْمٌ مِّنَ ٱلْكِتَـٰبِ أَنَا۠ ءَاتِيكَ بِهِۦ قَبْلَ أَن يَرْتَدَّ إِلَيْكَ طَرْفُكَ ۚ فَلَمَّا رَءَاهُ مُسْتَقِرًّا عِندَهُۥ قَالَ هَـٰذَا مِن فَضْلِ رَبِّى لِيَبْلُوَنِىٓ ءَأَشْكُرُ أَمْ أَكْفُرُ ۖ وَمَن شَكَرَ فَإِنَّمَا يَشْكُرُ لِنَفْسِهِۦ ۖ وَمَن كَفَرَ فَإِنَّ رَبِّى غَنِىٌّ كَرِيمٌ', translation: 'but one of them who had some knowledge of the Scripture said, ‘I will bring it to you in the twinkling of an eye.’ When Solomon saw it set before him, he said, ‘This is a favour from my Lord, to test whether I am grateful or not: if anyone is grateful, it is for his own good, if anyone is ungrateful, then my Lord is self-sufficient and most generous.’' },
-      { surah: 'Surah Al-Infitar', ayah: '82:6', arabic: 'يَـٰٓأَيُّهَا ٱلْإِنسَـٰنُ مَا غَرَّكَ بِرَبِّكَ ٱلْكَرِيمِ', translation: 'Mankind, what has lured you away from God,' },
+      { surah: 'An-Naml', ayah: '27:40' },
+      { surah: 'Al-Infitar', ayah: '82:6' },
     ],
   },
   {
@@ -557,8 +603,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah An-Nisa', ayah: '4:1', arabic: ' يَـٰٓأَيُّهَا ٱلنَّاسُ ٱتَّقُوا۟ رَبَّكُمُ ٱلَّذِى خَلَقَكُم مِّن نَّفْسٍ وَٰحِدَةٍ وَخَلَقَ مِنْهَا زَوْجَهَا وَبَثَّ مِنْهُمَا رِجَالًا كَثِيرًا وَنِسَآءً ۚ وَٱتَّقُوا۟ ٱللَّهَ ٱلَّذِى تَسَآءَلُونَ بِهِۦ وَٱلْأَرْحَامَ ۚ إِنَّ ٱللَّهَ كَانَ عَلَيْكُمْ رَقِيبًا', translation: 'People, be mindful of your Lord, who created you from a single soul, and from it created its mate, and from the pair of them spread countless men and women far and wide; be mindful of God, in whose name you make requests of one another. Beware of severing the ties of kinship: God is always watching over you.' },
-      { surah: 'Surah Al-Ma\'idah', ayah: '5:117', arabic: 'مَا قُلْتُ لَهُمْ إِلَّا مَآ أَمَرْتَنِى بِهِۦٓ أَنِ ٱعْبُدُوا۟ ٱللَّهَ رَبِّى وَرَبَّكُمْ ۚ وَكُنتُ عَلَيْهِمْ شَهِيدًا مَّا دُمْتُ فِيهِمْ ۖ فَلَمَّا تَوَفَّيْتَنِى كُنتَ أَنتَ ٱلرَّقِيبَ عَلَيْهِمْ ۚ وَأَنتَ عَلَىٰ كُلِّ شَىْءٍ شَهِيدٌ', translation: 'I told them only what You commanded me to: “Worship God, my Lord and your Lord.” I was a witness over them during my time among them. Ever since You took my soul, You alone have been the watcher over them: You are witness to all things' },
+      { surah: 'An-Nisa', ayah: '4:1' },
+      { surah: 'Al-Maidah', ayah: '5:117' },
     ],
   },
   {
@@ -570,7 +616,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Hud', ayah: '11:61', arabic: '۞ وَإِلَىٰ ثَمُودَ أَخَاهُمْ صَـٰلِحًا ۚ قَالَ يَـٰقَوْمِ ٱعْبُدُوا۟ ٱللَّهَ مَا لَكُم مِّنْ إِلَـٰهٍ غَيْرُهُۥ ۖ هُوَ أَنشَأَكُم مِّنَ ٱلْأَرْضِ وَٱسْتَعْمَرَكُمْ فِيهَا فَٱسْتَغْفِرُوهُ ثُمَّ تُوبُوٓا۟ إِلَيْهِ ۚ إِنَّ رَبِّى قَرِيبٌ مُّجِيبٌ', translation: 'To the Thamud, We sent their brother, Salih. He said, ‘My people, worship God. You have no god other than Him. It was He who brought you into being from the earth and made you inhabit it, so ask forgiveness from Him, and turn back to Him: my Lord is near, and ready to answer.’' },
+      { surah: 'Hud', ayah: '11:61' },
     ],
   },
   {
@@ -582,8 +628,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:115', arabic: 'وَلِلَّهِ ٱلْمَشْرِقُ وَٱلْمَغْرِبُ ۚ فَأَيْنَمَا تُوَلُّوا۟ فَثَمَّ وَجْهُ ٱللَّهِ ۚ إِنَّ ٱللَّهَ وَٰسِعٌ عَلِيمٌ', translation: 'The East and the West belong to God: wherever you turn, there is His Face. God is all pervading and all knowing.' },
-      { surah: 'Surah Al-Baqarah', ayah: '2:247', arabic: 'وَقَالَ لَهُمْ نَبِيُّهُمْ إِنَّ ٱللَّهَ قَدْ بَعَثَ لَكُمْ طَالُوتَ مَلِكًا ۚ قَالُوٓا۟ أَنَّىٰ يَكُونُ لَهُ ٱلْمُلْكُ عَلَيْنَا وَنَحْنُ أَحَقُّ بِٱلْمُلْكِ مِنْهُ وَلَمْ يُؤْتَ سَعَةً مِّنَ ٱلْمَالِ ۚ قَالَ إِنَّ ٱللَّهَ ٱصْطَفَىٰهُ عَلَيْكُمْ وَزَادَهُۥ بَسْطَةً فِى ٱلْعِلْمِ وَٱلْجِسْمِ ۖ وَٱللَّهُ يُؤْتِى مُلْكَهُۥ مَن يَشَآءُ ۚ وَٱللَّهُ وَٰسِعٌ عَلِيمٌ', translation: 'Their prophet said to them, ‘God has now appointed Talut to be your king,’ but they said, ‘How can he be king over us when we have a greater right to rule than he? He does not even have great wealth.’ He said, ‘God has chosen him over you, and has given him great knowledge and stature. God grants His authority to whoever He pleases: God is magnanimous, all knowing.’' },
+      { surah: 'Al-Baqarah', ayah: '2:268' },
+      { surah: 'Ali Imran', ayah: '3:73' },
+      { surah: 'Al-Maidah', ayah: '5:54' },
     ],
   },
   {
@@ -595,8 +642,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:129', arabic: 'رَبَّنَا وَٱبْعَثْ فِيهِمْ رَسُولًا مِّنْهُمْ يَتْلُوا۟ عَلَيْهِمْ ءَايَـٰتِكَ وَيُعَلِّمُهُمُ ٱلْكِتَـٰبَ وَٱلْحِكْمَةَ وَيُزَكِّيهِمْ ۚ إِنَّكَ أَنتَ ٱلْعَزِيزُ ٱلْحَكِيمُ', translation: 'Our Lord, make a messenger of their own rise up from among them, to recite Your revelations to them, teach them the Scripture and wisdom, and purify them: You are the Mighty, the Wise.’' },
-      { surah: 'Surah Luqman', ayah: '31:27', arabic: 'وَلَوْ أَنَّمَا فِى ٱلْأَرْضِ مِن شَجَرَةٍ أَقْلَـٰمٌ وَٱلْبَحْرُ يَمُدُّهُۥ مِنۢ بَعْدِهِۦ سَبْعَةُ أَبْحُرٍ مَّا نَفِدَتْ كَلِمَـٰتُ ٱللَّهِ ۗ إِنَّ ٱللَّهَ عَزِيزٌ حَكِيمٌ', translation: 'If all the trees on earth were pens and all the seas, with seven more seas besides, [were ink,] still God’s words would not run out: God is almighty and all wise.' },
+      { surah: 'Luqman', ayah: '31:27' },
+      { surah: 'Al-Ahqaf', ayah: '46:2' },
+      { surah: 'Al-Hadid', ayah: '57:1' },
+      { surah: 'At-Tahrim', ayah: '66:2' },
     ],
   },
   {
@@ -608,8 +657,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Hud', ayah: '11:90', arabic: 'وَٱسْتَغْفِرُوا۟ رَبَّكُمْ ثُمَّ تُوبُوٓا۟ إِلَيْهِ ۚ إِنَّ رَبِّى رَحِيمٌ وَدُودٌ', translation: 'Ask forgiveness from your Lord, and turn to Him in repentance: my Lord is merciful and most loving.’' },
-      { surah: 'Surah Al-Buruj', ayah: '85:14', arabic: 'وَهُوَ ٱلْغَفُورُ ٱلْوَدُودُ', translation: 'and He is the Most Forgiving, the Most Loving.' },
+      { surah: 'Hud', ayah: '11:90' },
+      { surah: 'Al-Buruj', ayah: '85:14' },
     ],
   },
   {
@@ -621,8 +670,7 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Hud', ayah: '11:73', arabic: 'قَالُوٓا۟ أَتَعْجَبِينَ مِنْ أَمْرِ ٱللَّهِ ۖ رَحْمَتُ ٱللَّهِ وَبَرَكَـٰتُهُۥ عَلَيْكُمْ أَهْلَ ٱلْبَيْتِ ۚ إِنَّهُۥ حَمِيدٌ مَّجِيدٌ', translation: 'They said, ‘Are you astonished at what God ordains? The grace of God and His blessings be upon you, people of this house! For He is worthy of all praise and glory.’' },
-      { surah: 'Surah Al-Buruj', ayah: '85:15', arabic: 'ذُو ٱلْعَرْشِ ٱلْمَجِيدُ', translation: 'The Glorious Lord of the Throne,' },
+      { surah: 'Hud', ayah: '11:73' },
     ],
   },
   {
@@ -634,7 +682,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Hajj', ayah: '22:7', arabic: 'وَأَنَّ ٱلسَّاعَةَ ءَاتِيَةٌ لَّا رَيْبَ فِيهَا وَأَنَّ ٱللَّهَ يَبْعَثُ مَن فِى ٱلْقُبُورِ', translation: 'There is no doubt that the Last Hour is bound to come, nor that God will raise the dead from their graves,' },
+      { surah: 'Al-Hajj', ayah: '22:7' },
     ],
   },
   {
@@ -646,8 +694,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah An-Nisa', ayah: '4:79', arabic: 'مَّآ أَصَابَكَ مِنْ حَسَنَةٍ فَمِنَ ٱللَّهِ ۖ وَمَآ أَصَابَكَ مِن سَيِّئَةٍ فَمِن نَّفْسِكَ ۚ وَأَرْسَلْنَـٰكَ لِلنَّاسِ رَسُولًا ۚ وَكَفَىٰ بِٱللَّهِ شَهِيدًا', translation: 'Anything good that happens to you [Prophet] is from God; anything bad is [ultimately] from yourself. We have sent you as a messenger to people; God is sufficient witness.' },
-      { surah: 'Surah An-Nisa', ayah: '4:166', arabic: 'لَّـٰكِنِ ٱللَّهُ يَشْهَدُ بِمَآ أَنزَلَ إِلَيْكَ ۖ أَنزَلَهُۥ بِعِلْمِهِۦ ۖ وَٱلْمَلَـٰٓئِكَةُ يَشْهَدُونَ ۚ وَكَفَىٰ بِٱللَّهِ شَهِيدًا', translation: 'But God Himself bears witness to what He has sent down to you––He sent it down with His full knowledge- the angels too bear witness, though God is sufficient witness.' },
+      { surah: 'An-Nisa', ayah: '4:166' },
+      { surah: 'Al-Hajj', ayah: '22:17' },
+      { surah: 'Fussilat', ayah: '41:53' },
+      { surah: 'Al-Fath', ayah: '48:28' },
     ],
   },
   {
@@ -659,8 +709,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hajj', ayah: '22:6', arabic: 'ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّهُۥ يُحْىِ ٱلْمَوْتَىٰ وَأَنَّهُۥ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ', translation: 'this is because God is the Truth; He brings the dead back to life; He has power over everything.' },
-      { surah: 'Surah Luqman', ayah: '31:30', arabic: 'ذَٰلِكَ بِأَنَّ ٱللَّهَ هُوَ ٱلْحَقُّ وَأَنَّ مَا يَدْعُونَ مِن دُونِهِ ٱلْبَـٰطِلُ وَأَنَّ ٱللَّهَ هُوَ ٱلْعَلِىُّ ٱلْكَبِيرُ', translation: 'This is because God is the Truth, and what they invoke beside Him is false. He is the Most High, Most Great.' },
+      { surah: 'Al-An'am', ayah: '6:62' },
+      { surah: 'Al-Hajj', ayah: '22:6' },
+      { surah: 'Al-Mu'minun', ayah: '23:116' },
+      { surah: 'An-Nur', ayah: '24:25' },
     ],
   },
   {
@@ -672,8 +724,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:173', arabic: 'ٱلَّذِينَ قَالَ لَهُمُ ٱلنَّاسُ إِنَّ ٱلنَّاسَ قَدْ جَمَعُوا۟ لَكُمْ فَٱخْشَوْهُمْ فَزَادَهُمْ إِيمَـٰنًا وَقَالُوا۟ حَسْبُنَا ٱللَّهُ وَنِعْمَ ٱلْوَكِيلُ', translation: 'Those whose faith only increased when people said, ‘Fear your enemy: they have amassed a great army against you,’ and who replied, ‘God is enough for us: He is the best protector,’' },
-      { surah: 'Surah Al-An\'am', ayah: '6:102', arabic: 'ذَٰلِكُمُ ٱللَّهُ رَبُّكُمْ ۖ لَآ إِلَـٰهَ إِلَّا هُوَ ۖ خَـٰلِقُ كُلِّ شَىْءٍ فَٱعْبُدُوهُ ۚ وَهُوَ عَلَىٰ كُلِّ شَىْءٍ وَكِيلٌ', translation: 'This is God, your Lord, there is no God but Him, the Creator of all things, so worship Him; He is in charge of everything.' },
+      { surah: 'Ali Imran', ayah: '3:173' },
+      { surah: 'An-Nisa', ayah: '4:171' },
+      { surah: 'Al-Qasas', ayah: '28:28' },
+      { surah: 'Al-Muzzammil', ayah: '73:9' },
     ],
   },
   {
@@ -685,8 +739,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hajj', ayah: '22:40', arabic: 'ٱلَّذِينَ أُخْرِجُوا۟ مِن دِيَـٰرِهِم بِغَيْرِ حَقٍّ إِلَّآ أَن يَقُولُوا۟ رَبُّنَا ٱللَّهُ ۗ وَلَوْلَا دَفْعُ ٱللَّهِ ٱلنَّاسَ بَعْضَهُم بِبَعْضٍ لَّهُدِّمَتْ صَوَٰمِعُ وَبِيَعٌ وَصَلَوَٰتٌ وَمَسَـٰجِدُ يُذْكَرُ فِيهَا ٱسْمُ ٱللَّهِ كَثِيرًا ۗ وَلَيَنصُرَنَّ ٱللَّهُ مَن يَنصُرُهُۥٓ ۗ إِنَّ ٱللَّهَ لَقَوِىٌّ عَزِيزٌ', translation: 'those who have been driven unjustly from their homes only for saying, ‘Our Lord is God.’ If God did not repel some people by means of others, many monasteries, churches, synagogues, and mosques, where God’s name is much invoked, would have been destroyed. God is sure to help those who help His cause- God is strong and mighty-' },
-      { surah: 'Surah Al-Hajj', ayah: '22:74', arabic: 'مَا قَدَرُوا۟ ٱللَّهَ حَقَّ قَدْرِهِۦٓ ۗ إِنَّ ٱللَّهَ لَقَوِىٌّ عَزِيزٌ', translation: 'They have no grasp of God’s true measure: God is truly most strong and mighty.' },
+      { surah: 'Al-Hajj', ayah: '22:40' },
+      { surah: 'Al-Hajj', ayah: '22:74' },
+      { surah: 'Ash-Shura', ayah: '42:19' },
+      { surah: 'Al-Hadid', ayah: '57:25' },
     ],
   },
   {
@@ -698,7 +754,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Adh-Dhariyat', ayah: '51:58', arabic: 'إِنَّ ٱللَّهَ هُوَ ٱلرَّزَّاقُ ذُو ٱلْقُوَّةِ ٱلْمَتِينُ', translation: 'God is the Provider, the Lord of Power, the Ever Mighty.' },
+      { surah: 'Adh-Dhariyat', ayah: '51:58' },
     ],
   },
   {
@@ -710,8 +766,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:257', arabic: 'ٱللَّهُ وَلِىُّ ٱلَّذِينَ ءَامَنُوا۟ يُخْرِجُهُم مِّنَ ٱلظُّلُمَـٰتِ إِلَى ٱلنُّورِ ۖ وَٱلَّذِينَ كَفَرُوٓا۟ أَوْلِيَآؤُهُمُ ٱلطَّـٰغُوتُ يُخْرِجُونَهُم مِّنَ ٱلنُّورِ إِلَى ٱلظُّلُمَـٰتِ ۗ أُو۟لَـٰٓئِكَ أَصْحَـٰبُ ٱلنَّارِ ۖ هُمْ فِيهَا خَـٰلِدُونَ', translation: 'God is the ally of those who believe: He brings them out of the depths of darkness and into the light. As for the disbelievers, their allies are false gods who take them from the light into the depths of darkness, they are the inhabitants of the Fire, and there they will remain.' },
-      { surah: 'Surah Ash-Shuraa', ayah: '42:28', arabic: 'وَهُوَ ٱلَّذِى يُنَزِّلُ ٱلْغَيْثَ مِنۢ بَعْدِ مَا قَنَطُوا۟ وَيَنشُرُ رَحْمَتَهُۥ ۚ وَهُوَ ٱلْوَلِىُّ ٱلْحَمِيدُ', translation: 'it is He who sends relief through rain after they have lost hope, and spreads His mercy far and wide. He is the Protector, Worthy of All Praise.' },
+      { surah: 'An-Nisa', ayah: '4:45' },
+      { surah: 'Al-A'raf', ayah: '7:196' },
+      { surah: 'Ash-Shura', ayah: '42:28' },
+      { surah: 'Al-Jathiyah', ayah: '45:19' },
     ],
   },
   {
@@ -723,8 +781,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ibrahim', ayah: '14:1', arabic: ' الٓر ۚ كِتَـٰبٌ أَنزَلْنَـٰهُ إِلَيْكَ لِتُخْرِجَ ٱلنَّاسَ مِنَ ٱلظُّلُمَـٰتِ إِلَى ٱلنُّورِ بِإِذْنِ رَبِّهِمْ إِلَىٰ صِرَٰطِ ٱلْعَزِيزِ ٱلْحَمِيدِ', translation: 'Alif Lam Ra This is a Scripture which We have sent down to you [Prophet] so that, with their Lord’s permission, you may bring people from the depths of darkness into light, to the path of the Almighty, the Praiseworthy One,' },
-      { surah: 'Surah Ibrahim', ayah: '14:8', arabic: 'وَقَالَ مُوسَىٰٓ إِن تَكْفُرُوٓا۟ أَنتُمْ وَمَن فِى ٱلْأَرْضِ جَمِيعًا فَإِنَّ ٱللَّهَ لَغَنِىٌّ حَمِيدٌ', translation: 'And Moses said, ‘Even if you, together with everybody else on earth, are thankless, God is self-sufficient, worthy of all praise.’' },
+      { surah: 'Ibrahim', ayah: '14:8' },
+      { surah: 'Luqman', ayah: '31:12' },
+      { surah: 'Luqman', ayah: '31:26' },
+      { surah: 'Fussilat', ayah: '41:42' },
     ],
   },
   {
@@ -736,7 +796,9 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Jinn', ayah: '72:28', arabic: 'لِّيَعْلَمَ أَن قَدْ أَبْلَغُوا۟ رِسَـٰلَـٰتِ رَبِّهِمْ وَأَحَاطَ بِمَا لَدَيْهِمْ وَأَحْصَىٰ كُلَّ شَىْءٍ عَدَدًۢا', translation: 'to ensure that each of His messengers delivers his Lord’s message: He knows all about them, and He takes account of everything.' },
+      { surah: 'Al-Jinn', ayah: '72:28' },
+      { surah: 'An-Naba', ayah: '78:29' },
+      { surah: 'Al-Infitar', ayah: '82:10' },
     ],
   },
   {
@@ -748,8 +810,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Yunus', ayah: '10:4', arabic: 'إِلَيْهِ مَرْجِعُكُمْ جَمِيعًا ۖ وَعْدَ ٱللَّهِ حَقًّا ۚ إِنَّهُۥ يَبْدَؤُا۟ ٱلْخَلْقَ ثُمَّ يُعِيدُهُۥ لِيَجْزِىَ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ بِٱلْقِسْطِ ۚ وَٱلَّذِينَ كَفَرُوا۟ لَهُمْ شَرَابٌ مِّنْ حَمِيمٍ وَعَذَابٌ أَلِيمٌۢ بِمَا كَانُوا۟ يَكْفُرُونَ', translation: 'It is to Him you shall all return––that is a true promise from God. It was He who created [you] in the first place, and He will do so again, so that He may justly reward those who believe and do good deeds. But the disbelievers will have a drink of scalding water, and agonizing torment, because they persistently disbelieved.' },
-      { surah: 'Surah Al-Buruj', ayah: '85:13', arabic: 'إِنَّهُۥ هُوَ يُبْدِئُ وَيُعِيدُ', translation: 'it is He who brings people to life, and will restore them to life again––' },
+      { surah: 'Yunus', ayah: '10:34' },
+      { surah: 'An-Naml', ayah: '27:64' },
+      { surah: 'Al-Ankabut', ayah: '29:19' },
+      { surah: 'Al-Buruj', ayah: '85:13' },
     ],
   },
   {
@@ -761,8 +825,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Yunus', ayah: '10:4', arabic: 'إِلَيْهِ مَرْجِعُكُمْ جَمِيعًا ۖ وَعْدَ ٱللَّهِ حَقًّا ۚ إِنَّهُۥ يَبْدَؤُا۟ ٱلْخَلْقَ ثُمَّ يُعِيدُهُۥ لِيَجْزِىَ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّـٰلِحَـٰتِ بِٱلْقِسْطِ ۚ وَٱلَّذِينَ كَفَرُوا۟ لَهُمْ شَرَابٌ مِّنْ حَمِيمٍ وَعَذَابٌ أَلِيمٌۢ بِمَا كَانُوا۟ يَكْفُرُونَ', translation: 'It is to Him you shall all return––that is a true promise from God. It was He who created [you] in the first place, and He will do so again, so that He may justly reward those who believe and do good deeds. But the disbelievers will have a drink of scalding water, and agonizing torment, because they persistently disbelieved.' },
-      { surah: 'Surah Al-Buruj', ayah: '85:13', arabic: 'إِنَّهُۥ هُوَ يُبْدِئُ وَيُعِيدُ', translation: 'it is He who brings people to life, and will restore them to life again––' },
+      { surah: 'Yunus', ayah: '10:34' },
+      { surah: 'An-Naml', ayah: '27:64' },
+      { surah: 'Al-Ankabut', ayah: '29:19' },
+      { surah: 'Al-Buruj', ayah: '85:13' },
     ],
   },
   {
@@ -774,8 +840,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:156', arabic: 'يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَكُونُوا۟ كَٱلَّذِينَ كَفَرُوا۟ وَقَالُوا۟ لِإِخْوَٰنِهِمْ إِذَا ضَرَبُوا۟ فِى ٱلْأَرْضِ أَوْ كَانُوا۟ غُزًّى لَّوْ كَانُوا۟ عِندَنَا مَا مَاتُوا۟ وَمَا قُتِلُوا۟ لِيَجْعَلَ ٱللَّهُ ذَٰلِكَ حَسْرَةً فِى قُلُوبِهِمْ ۗ وَٱللَّهُ يُحْىِۦ وَيُمِيتُ ۗ وَٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ', translation: 'You who believe, do not be like those who disbelieved and said of their brothers who went out on a journey or a raid, ‘If only they had stayed with us they would not have died or been killed,’ for God will make such thoughts a source of anguish in their hearts. It is God who gives life and death; God sees everything you do.' },
-      { surah: 'Surah Al-A\'raf', ayah: '7:158', arabic: 'قُلْ يَـٰٓأَيُّهَا ٱلنَّاسُ إِنِّى رَسُولُ ٱللَّهِ إِلَيْكُمْ جَمِيعًا ٱلَّذِى لَهُۥ مُلْكُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۖ لَآ إِلَـٰهَ إِلَّا هُوَ يُحْىِۦ وَيُمِيتُ ۖ فَـَٔامِنُوا۟ بِٱللَّهِ وَرَسُولِهِ ٱلنَّبِىِّ ٱلْأُمِّىِّ ٱلَّذِى يُؤْمِنُ بِٱللَّهِ وَكَلِمَـٰتِهِۦ وَٱتَّبِعُوهُ لَعَلَّكُمْ تَهْتَدُونَ', translation: 'Say [Muhammad], ‘People, I am the Messenger of God to you all, from Him who has control over the heavens and the earth. There is no God but Him; He gives life and death, so believe in God and His Messenger, the unlettered prophet who believes in God and His words, and follow him so that you may find guidance.’' },
+      { surah: 'Al-A'raf', ayah: '7:158' },
+      { surah: 'Al-Hijr', ayah: '15:23' },
+      { surah: 'Ar-Rum', ayah: '30:50' },
+      { surah: 'Al-Hadid', ayah: '57:2' },
+    ], ‘People, I am the Messenger of God to you all, from Him who has control over the heavens and the earth. There is no God but Him; He gives life and death, so believe in God and His Messenger, the unlettered prophet who believes in God and His words, and follow him so that you may find guidance.’' },
     ],
   },
   {
@@ -787,8 +856,11 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:156', arabic: 'يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوا۟ لَا تَكُونُوا۟ كَٱلَّذِينَ كَفَرُوا۟ وَقَالُوا۟ لِإِخْوَٰنِهِمْ إِذَا ضَرَبُوا۟ فِى ٱلْأَرْضِ أَوْ كَانُوا۟ غُزًّى لَّوْ كَانُوا۟ عِندَنَا مَا مَاتُوا۟ وَمَا قُتِلُوا۟ لِيَجْعَلَ ٱللَّهُ ذَٰلِكَ حَسْرَةً فِى قُلُوبِهِمْ ۗ وَٱللَّهُ يُحْىِۦ وَيُمِيتُ ۗ وَٱللَّهُ بِمَا تَعْمَلُونَ بَصِيرٌ', translation: 'You who believe, do not be like those who disbelieved and said of their brothers who went out on a journey or a raid, ‘If only they had stayed with us they would not have died or been killed,’ for God will make such thoughts a source of anguish in their hearts. It is God who gives life and death; God sees everything you do.' },
-      { surah: 'Surah Al-A\'raf', ayah: '7:158', arabic: 'قُلْ يَـٰٓأَيُّهَا ٱلنَّاسُ إِنِّى رَسُولُ ٱللَّهِ إِلَيْكُمْ جَمِيعًا ٱلَّذِى لَهُۥ مُلْكُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۖ لَآ إِلَـٰهَ إِلَّا هُوَ يُحْىِۦ وَيُمِيتُ ۖ فَـَٔامِنُوا۟ بِٱللَّهِ وَرَسُولِهِ ٱلنَّبِىِّ ٱلْأُمِّىِّ ٱلَّذِى يُؤْمِنُ بِٱللَّهِ وَكَلِمَـٰتِهِۦ وَٱتَّبِعُوهُ لَعَلَّكُمْ تَهْتَدُونَ', translation: 'Say [Muhammad], ‘People, I am the Messenger of God to you all, from Him who has control over the heavens and the earth. There is no God but Him; He gives life and death, so believe in God and His Messenger, the unlettered prophet who believes in God and His words, and follow him so that you may find guidance.’' },
+      { surah: 'Ali Imran', ayah: '3:156' },
+      { surah: 'Al-A'raf', ayah: '7:158' },
+      { surah: 'Al-Hijr', ayah: '15:23' },
+      { surah: 'Al-Hadid', ayah: '57:2' },
+    ], ‘People, I am the Messenger of God to you all, from Him who has control over the heavens and the earth. There is no God but Him; He gives life and death, so believe in God and His Messenger, the unlettered prophet who believes in God and His words, and follow him so that you may find guidance.’' },
     ],
   },
   {
@@ -800,8 +872,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:255', arabic: 'ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ', translation: 'God: there is no god but Him, the Ever Living, the Ever Watchful.Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.' },
-      { surah: 'Surah Ali \'Imran', ayah: '3:2', arabic: 'ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ', translation: 'God: there is no god but Him, the Ever Living, the Ever Watchful.' },
+      { surah: 'Al-Baqarah', ayah: '2:255' },
+      { surah: 'Ali Imran', ayah: '3:2' },
+      { surah: 'Al-Furqan', ayah: '25:58' },
+      { surah: 'Ghafir', ayah: '40:65' },
     ],
   },
   {
@@ -813,8 +887,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:255', arabic: 'ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ ۚ لَا تَأْخُذُهُۥ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُۥ مَا فِى ٱلسَّمَـٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ مَن ذَا ٱلَّذِى يَشْفَعُ عِندَهُۥٓ إِلَّا بِإِذْنِهِۦ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَىْءٍ مِّنْ عِلْمِهِۦٓ إِلَّا بِمَا شَآءَ ۚ وَسِعَ كُرْسِيُّهُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضَ ۖ وَلَا يَـُٔودُهُۥ حِفْظُهُمَا ۚ وَهُوَ ٱلْعَلِىُّ ٱلْعَظِيمُ', translation: 'God: there is no god but Him, the Ever Living, the Ever Watchful.Neither slumber nor sleep overtakes Him. All that is in the heavens and in the earth belongs to Him. Who is there that can intercede with Him except by His leave? He knows what is before them and what is behind them, but they do not comprehend any of His knowledge except what He wills. His throne extends over the heavens and the earth; it does not weary Him to preserve them both. He is the Most High, the Tremendous.' },
-      { surah: 'Surah Ali \'Imran', ayah: '3:2', arabic: 'ٱللَّهُ لَآ إِلَـٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ', translation: 'God: there is no god but Him, the Ever Living, the Ever Watchful.' },
+      { surah: 'Al-Baqarah', ayah: '2:255' },
+      { surah: 'Ali Imran', ayah: '3:2' },
+      { surah: 'Ta-Ha', ayah: '20:111' },
     ],
   },
   {
@@ -826,7 +901,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Sad', ayah: '38:44', arabic: 'وَخُذْ بِيَدِكَ ضِغْثًا فَٱضْرِب بِّهِۦ وَلَا تَحْنَثْ ۗ إِنَّا وَجَدْنَـٰهُ صَابِرًا ۚ نِّعْمَ ٱلْعَبْدُ ۖ إِنَّهُۥٓ أَوَّابٌ', translation: '‘Take a small bunch of grass in your hand, and strike [her] with that so as not to break your oath.’ We found him patient in adversity; an excellent servant! He, too, always turned to God.' },
+      { surah: 'Sad', ayah: '38:44' },
     ],
   },
   {
@@ -838,7 +913,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Hud', ayah: '11:73', arabic: 'قَالُوٓا۟ أَتَعْجَبِينَ مِنْ أَمْرِ ٱللَّهِ ۖ رَحْمَتُ ٱللَّهِ وَبَرَكَـٰتُهُۥ عَلَيْكُمْ أَهْلَ ٱلْبَيْتِ ۚ إِنَّهُۥ حَمِيدٌ مَّجِيدٌ', translation: 'They said, ‘Are you astonished at what God ordains? The grace of God and His blessings be upon you, people of this house! For He is worthy of all praise and glory.’' },
+      { surah: 'Hud', ayah: '11:73' },
     ],
   },
   {
@@ -850,8 +925,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:163', arabic: 'وَإِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ لَّآ إِلَـٰهَ إِلَّا هُوَ ٱلرَّحْمَـٰنُ ٱلرَّحِيمُ', translation: 'Your God is the one God: there is no god except Him, the Lord of Mercy, the Giver of Mercy.' },
-      { surah: 'Surah Al-Kahf', ayah: '18:110', arabic: 'قُلْ إِنَّمَآ أَنَا۠ بَشَرٌ مِّثْلُكُمْ يُوحَىٰٓ إِلَىَّ أَنَّمَآ إِلَـٰهُكُمْ إِلَـٰهٌ وَٰحِدٌ ۖ فَمَن كَانَ يَرْجُوا۟ لِقَآءَ رَبِّهِۦ فَلْيَعْمَلْ عَمَلًا صَـٰلِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِۦٓ أَحَدًۢا', translation: 'Say, ‘I am only a human being, like you, to whom it has been revealed that your God is One. Anyone who fears to meet his Lord should do good deeds and give no one a share in the worship due to his Lord.' },
+      { surah: 'Al-Baqarah', ayah: '2:163' },
+      { surah: 'Al-Maidah', ayah: '5:73' },
+      { surah: 'At-Tawbah', ayah: '9:31' },
+      { surah: 'Al-Kahf', ayah: '18:110' },
     ],
   },
   {
@@ -863,7 +940,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Ikhlas', ayah: '112:1', arabic: ' قُلْ هُوَ ٱللَّهُ أَحَدٌ', translation: 'Say, ‘He is God the One,' },
+      { surah: 'Al-Ikhlas', ayah: '112:1' },
     ],
   },
   {
@@ -875,7 +952,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Ikhlas', ayah: '112:2', arabic: 'ٱللَّهُ ٱلصَّمَدُ', translation: 'God the eternal.' },
+      { surah: 'Al-Ikhlas', ayah: '112:2' },
     ],
   },
   {
@@ -887,8 +964,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-An\'am', ayah: '6:65', arabic: 'قُلْ هُوَ ٱلْقَادِرُ عَلَىٰٓ أَن يَبْعَثَ عَلَيْكُمْ عَذَابًا مِّن فَوْقِكُمْ أَوْ مِن تَحْتِ أَرْجُلِكُمْ أَوْ يَلْبِسَكُمْ شِيَعًا وَيُذِيقَ بَعْضَكُم بَأْسَ بَعْضٍ ۗ ٱنظُرْ كَيْفَ نُصَرِّفُ ٱلْـَٔايَـٰتِ لَعَلَّهُمْ يَفْقَهُونَ', translation: 'Say, ‘He has power to send punishment on you from above or from under your very feet, or to divide you into discordant factions and make some taste the violence of others.’ See how We explain Our revelation in various ways, so that they may understand,' },
-      { surah: 'Surah Ya-Sin', ayah: '36:83', arabic: 'فَسُبْحَـٰنَ ٱلَّذِى بِيَدِهِۦ مَلَكُوتُ كُلِّ شَىْءٍ وَإِلَيْهِ تُرْجَعُونَ', translation: 'So glory be to Him in whose Hand lies control over all things. It is to Him that you will all be brought back.’' },
+      { surah: 'Al-An'am', ayah: '6:65' },
+      { surah: 'Ya-Sin', ayah: '36:81' },
+      { surah: 'Al-Ahqaf', ayah: '46:33' },
+      { surah: 'Al-Qiyamah', ayah: '75:40' },
     ],
   },
   {
@@ -900,8 +979,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Kahf', ayah: '18:45', arabic: 'وَٱضْرِبْ لَهُم مَّثَلَ ٱلْحَيَوٰةِ ٱلدُّنْيَا كَمَآءٍ أَنزَلْنَـٰهُ مِنَ ٱلسَّمَآءِ فَٱخْتَلَطَ بِهِۦ نَبَاتُ ٱلْأَرْضِ فَأَصْبَحَ هَشِيمًا تَذْرُوهُ ٱلرِّيَـٰحُ ۗ وَكَانَ ٱللَّهُ عَلَىٰ كُلِّ شَىْءٍ مُّقْتَدِرًا', translation: 'Tell them, too, what the life of this world is like: We send water down from the skies and the earth’s vegetation absorbs it, but soon the plants turn to dry stubble scattered about by the wind: God has power over everything.' },
-      { surah: 'Surah Al-Qamar', ayah: '54:42', arabic: 'كَذَّبُوا۟ بِـَٔايَـٰتِنَا كُلِّهَا فَأَخَذْنَـٰهُمْ أَخْذَ عَزِيزٍ مُّقْتَدِرٍ', translation: 'They rejected all Our signs so We seized them with all Our might and power.' },
+      { surah: 'Al-Kahf', ayah: '18:45' },
+      { surah: 'Al-Qamar', ayah: '54:42' },
+      { surah: 'Al-Qamar', ayah: '54:55' },
     ],
   },
   {
@@ -913,7 +993,8 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Qaf', ayah: '50:28', arabic: 'قَالَ لَا تَخْتَصِمُوا۟ لَدَىَّ وَقَدْ قَدَّمْتُ إِلَيْكُم بِٱلْوَعِيدِ', translation: 'God will say, ‘Do not argue in My presence. I sent you a warning' },
+      { surah: 'An-Nahl', ayah: '16:61' },
+      { surah: 'Al-Isra', ayah: '17:34' },
     ],
   },
   {
@@ -925,7 +1006,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Nuh', ayah: '71:4', arabic: 'يَغْفِرْ لَكُم مِّن ذُنُوبِكُمْ وَيُؤَخِّرْكُمْ إِلَىٰٓ أَجَلٍ مُّسَمًّى ۚ إِنَّ أَجَلَ ٱللَّهِ إِذَا جَآءَ لَا يُؤَخَّرُ ۖ لَوْ كُنتُمْ تَعْلَمُونَ', translation: 'He will forgive you your sins and spare you until your appointed time––when God’s appointed time arrives it cannot be postponed. If only you understood!’' },
+      { surah: 'Nuh', ayah: '71:4' },
     ],
   },
   {
@@ -937,7 +1018,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Hadid', ayah: '57:3', arabic: 'هُوَ ٱلْأَوَّلُ وَٱلْـَٔاخِرُ وَٱلظَّـٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ', translation: 'He is the First and the Last; the Outer and the Inner; He has knowledge of all things.' },
+      { surah: 'Al-Hadid', ayah: '57:3' },
     ],
   },
   {
@@ -949,7 +1030,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Hadid', ayah: '57:3', arabic: 'هُوَ ٱلْأَوَّلُ وَٱلْـَٔاخِرُ وَٱلظَّـٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ', translation: 'He is the First and the Last; the Outer and the Inner; He has knowledge of all things.' },
+      { surah: 'Al-Hadid', ayah: '57:3' },
     ],
   },
   {
@@ -961,7 +1042,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Hadid', ayah: '57:3', arabic: 'هُوَ ٱلْأَوَّلُ وَٱلْـَٔاخِرُ وَٱلظَّـٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ', translation: 'He is the First and the Last; the Outer and the Inner; He has knowledge of all things.' },
+      { surah: 'Al-Hadid', ayah: '57:3' },
     ],
   },
   {
@@ -973,7 +1054,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Al-Hadid', ayah: '57:3', arabic: 'هُوَ ٱلْأَوَّلُ وَٱلْـَٔاخِرُ وَٱلظَّـٰهِرُ وَٱلْبَاطِنُ ۖ وَهُوَ بِكُلِّ شَىْءٍ عَلِيمٌ', translation: 'He is the First and the Last; the Outer and the Inner; He has knowledge of all things.' },
+      { surah: 'Al-Hadid', ayah: '57:3' },
     ],
   },
   {
@@ -985,7 +1066,8 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ar-Ra\'d', ayah: '13:11', arabic: 'لَهُۥ مُعَقِّبَـٰتٌ مِّنۢ بَيْنِ يَدَيْهِ وَمِنْ خَلْفِهِۦ يَحْفَظُونَهُۥ مِنْ أَمْرِ ٱللَّهِ ۗ إِنَّ ٱللَّهَ لَا يُغَيِّرُ مَا بِقَوْمٍ حَتَّىٰ يُغَيِّرُوا۟ مَا بِأَنفُسِهِمْ ۗ وَإِذَآ أَرَادَ ٱللَّهُ بِقَوْمٍ سُوٓءًا فَلَا مَرَدَّ لَهُۥ ۚ وَمَا لَهُم مِّن دُونِهِۦ مِن وَالٍ', translation: 'each person has guardian angels before him and behind, watching over him by God’s command. God does not change the condition of a people [for the worse] unless they change what is in themselves, but if He wills harm on a people, no one can ward it off–– apart from Him, they have no protector.' },
+      { surah: 'Ar-Ra'd', ayah: '13:11' },
+      { surah: 'Al-Hajj', ayah: '22:7' },
     ],
   },
   {
@@ -997,7 +1079,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ar-Ra\'d', ayah: '13:9', arabic: 'عَـٰلِمُ ٱلْغَيْبِ وَٱلشَّهَـٰدَةِ ٱلْكَبِيرُ ٱلْمُتَعَالِ', translation: 'He knows what is not seen as well as what is seen; He is the Great, the Most High.' },
+      { surah: 'Ar-Ra'd', ayah: '13:9' },
     ],
   },
   {
@@ -1009,7 +1091,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah At-Tur', ayah: '52:28', arabic: 'إِنَّا كُنَّا مِن قَبْلُ نَدْعُوهُ ۖ إِنَّهُۥ هُوَ ٱلْبَرُّ ٱلرَّحِيمُ', translation: 'We used to pray to Him: He is the Good, the Merciful One.’' },
+      { surah: 'At-Tur', ayah: '52:28' },
     ],
   },
   {
@@ -1021,8 +1103,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:37', arabic: 'فَتَلَقَّىٰٓ ءَادَمُ مِن رَّبِّهِۦ كَلِمَـٰتٍ فَتَابَ عَلَيْهِ ۚ إِنَّهُۥ هُوَ ٱلتَّوَّابُ ٱلرَّحِيمُ', translation: 'Then Adam received some words from his Lord and He accepted his repentance: He is the Ever Relenting, the Most Merciful.' },
-      { surah: 'Surah Al-Baqarah', ayah: '2:128', arabic: 'رَبَّنَا وَٱجْعَلْنَا مُسْلِمَيْنِ لَكَ وَمِن ذُرِّيَّتِنَآ أُمَّةً مُّسْلِمَةً لَّكَ وَأَرِنَا مَنَاسِكَنَا وَتُبْ عَلَيْنَآ ۖ إِنَّكَ أَنتَ ٱلتَّوَّابُ ٱلرَّحِيمُ', translation: 'Our Lord, make us devoted to You; make our descendants into a community devoted to You. Show us how to worship and accept our repentance, for You are the Ever Relenting, the Most Merciful.' },
+      { surah: 'Al-Baqarah', ayah: '2:128' },
+      { surah: 'An-Nisa', ayah: '4:64' },
+      { surah: 'Al-Hujurat', ayah: '49:12' },
+      { surah: 'An-Nasr', ayah: '110:3' },
     ],
   },
   {
@@ -1034,8 +1118,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:4', arabic: 'مِن قَبْلُ هُدًى لِّلنَّاسِ وَأَنزَلَ ٱلْفُرْقَانَ ۗ إِنَّ ٱلَّذِينَ كَفَرُوا۟ بِـَٔايَـٰتِ ٱللَّهِ لَهُمْ عَذَابٌ شَدِيدٌ ۗ وَٱللَّهُ عَزِيزٌ ذُو ٱنتِقَامٍ', translation: 'earlier as a guide for people and He has sent down the distinction [between right and wrong]. Those who deny God’s revelations will suffer severe torment: God is almighty and capable of retribution.' },
-      { surah: 'Surah As-Sajdah', ayah: '32:22', arabic: 'وَمَنْ أَظْلَمُ مِمَّن ذُكِّرَ بِـَٔايَـٰتِ رَبِّهِۦ ثُمَّ أَعْرَضَ عَنْهَآ ۚ إِنَّا مِنَ ٱلْمُجْرِمِينَ مُنتَقِمُونَ', translation: 'Who does more wrong than someone who, when messages from his Lord are recited to him, turns away from them? We shall inflict retribution on the guilty.' },
+      { surah: 'As-Sajdah', ayah: '32:22' },
+      { surah: 'Az-Zukhruf', ayah: '43:41' },
+      { surah: 'Ad-Dukhan', ayah: '44:16' },
     ],
   },
   {
@@ -1047,8 +1132,9 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah An-Nisa', ayah: '4:149', arabic: 'إِن تُبْدُوا۟ خَيْرًا أَوْ تُخْفُوهُ أَوْ تَعْفُوا۟ عَن سُوٓءٍ فَإِنَّ ٱللَّهَ كَانَ عَفُوًّا قَدِيرًا', translation: 'If you do good, openly or in secret, or if you pardon something bad,then God is most forgiving and powerful.' },
-      { surah: 'Surah Al-Hajj', ayah: '22:60', arabic: '۞ ذَٰلِكَ وَمَنْ عَاقَبَ بِمِثْلِ مَا عُوقِبَ بِهِۦ ثُمَّ بُغِىَ عَلَيْهِ لَيَنصُرَنَّهُ ٱللَّهُ ۗ إِنَّ ٱللَّهَ لَعَفُوٌّ غَفُورٌ', translation: 'So it will be. God will help those who retaliate against an aggressive act merely with its like and are then wronged again: God is pardoning and most forgiving.' },
+      { surah: 'An-Nisa', ayah: '4:99' },
+      { surah: 'An-Nisa', ayah: '4:149' },
+      { surah: 'Al-Hajj', ayah: '22:60' },
     ],
   },
   {
@@ -1060,8 +1146,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:207', arabic: 'وَمِنَ ٱلنَّاسِ مَن يَشْرِى نَفْسَهُ ٱبْتِغَآءَ مَرْضَاتِ ٱللَّهِ ۗ وَٱللَّهُ رَءُوفٌۢ بِٱلْعِبَادِ', translation: 'But there is also a kind of man who gives his life away to please God, and God is most compassionate to His servants.' },
-      { surah: 'Surah Al-Hashr', ayah: '59:10', arabic: 'وَٱلَّذِينَ جَآءُو مِنۢ بَعْدِهِمْ يَقُولُونَ رَبَّنَا ٱغْفِرْ لَنَا وَلِإِخْوَٰنِنَا ٱلَّذِينَ سَبَقُونَا بِٱلْإِيمَـٰنِ وَلَا تَجْعَلْ فِى قُلُوبِنَا غِلًّا لِّلَّذِينَ ءَامَنُوا۟ رَبَّنَآ إِنَّكَ رَءُوفٌ رَّحِيمٌ', translation: 'Those who came after them say, ‘Lord, forgive us our sins and the sins of our brothers who believed before us, and leave no malice in our hearts towards those who believe. Lord, You are truly compassionate and merciful.’' },
+      { surah: 'Ali Imran', ayah: '3:30' },
+      { surah: 'At-Tawbah', ayah: '9:117' },
+      { surah: 'Al-Hadid', ayah: '57:9' },
+      { surah: 'Al-Hashr', ayah: '59:10' },
     ],
   },
   {
@@ -1073,7 +1161,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:26', arabic: 'قُلِ ٱللَّهُمَّ مَـٰلِكَ ٱلْمُلْكِ تُؤْتِى ٱلْمُلْكَ مَن تَشَآءُ وَتَنزِعُ ٱلْمُلْكَ مِمَّن تَشَآءُ وَتُعِزُّ مَن تَشَآءُ وَتُذِلُّ مَن تَشَآءُ ۖ بِيَدِكَ ٱلْخَيْرُ ۖ إِنَّكَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ', translation: 'Say, ‘God, holder of all control, You give control to whoever You will and remove it from whoever You will; You elevate whoever You will and humble whoever You will. All that is good lies in Your hand: You have power over everything.' },
+      { surah: 'Ali Imran', ayah: '3:26' },
     ],
   },
   {
@@ -1085,8 +1173,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Ar-Rahman', ayah: '55:27', arabic: 'وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ', translation: 'all that remains is the Face of your Lord, full of majesty, bestowing honour.' },
-      { surah: 'Surah Ar-Rahman', ayah: '55:78', arabic: 'تَبَـٰرَكَ ٱسْمُ رَبِّكَ ذِى ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ', translation: 'Blessed is the name of your Lord, full of majesty, bestowing honour.' },
+      { surah: 'Ar-Rahman', ayah: '55:27' },
+      { surah: 'Ar-Rahman', ayah: '55:78' },
     ],
   },
   {
@@ -1098,8 +1186,8 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Anbya', ayah: '21:47', arabic: 'وَنَضَعُ ٱلْمَوَٰزِينَ ٱلْقِسْطَ لِيَوْمِ ٱلْقِيَـٰمَةِ فَلَا تُظْلَمُ نَفْسٌ شَيْـًٔا ۖ وَإِن كَانَ مِثْقَالَ حَبَّةٍ مِّنْ خَرْدَلٍ أَتَيْنَا بِهَا ۗ وَكَفَىٰ بِنَا حَـٰسِبِينَ', translation: 'We will set up scales of justice for the Day of Resurrection so that no one can be wronged in the least, and if there should be even the weight of a mustard seed, We shall bring it out- We take excellent account.' },
-      { surah: 'Surah Al-Hujurat', ayah: '49:9', arabic: 'وَإِن طَآئِفَتَانِ مِنَ ٱلْمُؤْمِنِينَ ٱقْتَتَلُوا۟ فَأَصْلِحُوا۟ بَيْنَهُمَا ۖ فَإِنۢ بَغَتْ إِحْدَىٰهُمَا عَلَى ٱلْأُخْرَىٰ فَقَـٰتِلُوا۟ ٱلَّتِى تَبْغِى حَتَّىٰ تَفِىٓءَ إِلَىٰٓ أَمْرِ ٱللَّهِ ۚ فَإِن فَآءَتْ فَأَصْلِحُوا۟ بَيْنَهُمَا بِٱلْعَدْلِ وَأَقْسِطُوٓا۟ ۖ إِنَّ ٱللَّهَ يُحِبُّ ٱلْمُقْسِطِينَ', translation: 'If two groups of the believers fight, you [believers] should try to reconcile them; if one of them is [clearly] oppressing the other, fight the oppressors until they submit to God’s command, then make a just and even-handed reconciliation between the two of them: God loves those who are even-handed.' },
+      { surah: 'Al-A'raf', ayah: '7:29' },
+      { surah: 'Ali Imran', ayah: '3:18' },
     ],
   },
   {
@@ -1111,7 +1199,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ali \'Imran', ayah: '3:9', arabic: 'رَبَّنَآ إِنَّكَ جَامِعُ ٱلنَّاسِ لِيَوْمٍ لَّا رَيْبَ فِيهِ ۚ إِنَّ ٱللَّهَ لَا يُخْلِفُ ٱلْمِيعَادَ', translation: 'Our Lord, You will gather all people on the Day of which there is no doubt: God never breaks His promise.’' },
+      { surah: 'Ali Imran', ayah: '3:9' },
     ],
   },
   {
@@ -1123,8 +1211,10 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:263', arabic: '۞ قَوْلٌ مَّعْرُوفٌ وَمَغْفِرَةٌ خَيْرٌ مِّن صَدَقَةٍ يَتْبَعُهَآ أَذًى ۗ وَٱللَّهُ غَنِىٌّ حَلِيمٌ', translation: 'A kind word and forgiveness is better than a charitable deed followed by hurtful [words]: God is self-sufficient, forbearing.' },
-      { surah: 'Surah Fatir', ayah: '35:15', arabic: '۞ يَـٰٓأَيُّهَا ٱلنَّاسُ أَنتُمُ ٱلْفُقَرَآءُ إِلَى ٱللَّهِ ۖ وَٱللَّهُ هُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ', translation: 'People, it is you who stand in need of God- God needs nothing and is worthy of all praise-' },
+      { surah: 'Ali Imran', ayah: '3:97' },
+      { surah: 'Az-Zumar', ayah: '39:7' },
+      { surah: 'Muhammad', ayah: '47:38' },
+      { surah: 'Al-Hadid', ayah: '57:24' },
     ],
   },
   {
@@ -1136,7 +1226,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Ad-Duhaa', ayah: '93:8', arabic: 'وَوَجَدَكَ عَآئِلًا فَأَغْنَىٰ', translation: 'Did He not find you in need and make you self-sufficient?' },
+      { surah: 'At-Tawbah', ayah: '9:28' },
     ],
   },
   {
@@ -1148,7 +1238,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Mulk', ayah: '67:21', arabic: 'أَمَّنْ هَـٰذَا ٱلَّذِى يَرْزُقُكُمْ إِنْ أَمْسَكَ رِزْقَهُۥ ۚ بَل لَّجُّوا۟ فِى عُتُوٍّ وَنُفُورٍ', translation: 'Who can provide for you if He withholds His provision? Yet they persist in their insolence and their avoidance of the Truth.' },
+      { surah: 'Al-Mulk', ayah: '67:21' },
     ],
   },
   {
@@ -1160,7 +1250,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-An\'am', ayah: '6:17', arabic: 'وَإِن يَمْسَسْكَ ٱللَّهُ بِضُرٍّ فَلَا كَاشِفَ لَهُۥٓ إِلَّا هُوَ ۖ وَإِن يَمْسَسْكَ بِخَيْرٍ فَهُوَ عَلَىٰ كُلِّ شَىْءٍ قَدِيرٌ', translation: 'If God touches you [Prophet] with affliction, no one can remove it except Him, and if He touches you with good, He has power over all things:' },
+      { surah: 'Al-An'am', ayah: '6:17' },
     ],
   },
   {
@@ -1172,7 +1262,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Fath', ayah: '48:11', arabic: 'سَيَقُولُ لَكَ ٱلْمُخَلَّفُونَ مِنَ ٱلْأَعْرَابِ شَغَلَتْنَآ أَمْوَٰلُنَا وَأَهْلُونَا فَٱسْتَغْفِرْ لَنَا ۚ يَقُولُونَ بِأَلْسِنَتِهِم مَّا لَيْسَ فِى قُلُوبِهِمْ ۚ قُلْ فَمَن يَمْلِكُ لَكُم مِّنَ ٱللَّهِ شَيْـًٔا إِنْ أَرَادَ بِكُمْ ضَرًّا أَوْ أَرَادَ بِكُمْ نَفْعًۢا ۚ بَلْ كَانَ ٱللَّهُ بِمَا تَعْمَلُونَ خَبِيرًۢا', translation: 'The desert Arabs who stayed behind will say to you, ‘We were busy with our property and our families: ask forgiveness for us,’ but they say with their tongues what is not in their hearts. Say, ‘Whether it is God’s will to do you harm or good, who can intervene for you?’ No! God is fully aware of everything you [people] do.' },
+      { surah: 'Ar-Rum', ayah: '30:37' },
     ],
   },
   {
@@ -1184,7 +1274,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah An-Nur', ayah: '24:35', arabic: '۞ ٱللَّهُ نُورُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۚ مَثَلُ نُورِهِۦ كَمِشْكَوٰةٍ فِيهَا مِصْبَاحٌ ۖ ٱلْمِصْبَاحُ فِى زُجَاجَةٍ ۖ ٱلزُّجَاجَةُ كَأَنَّهَا كَوْكَبٌ دُرِّىٌّ يُوقَدُ مِن شَجَرَةٍ مُّبَـٰرَكَةٍ زَيْتُونَةٍ لَّا شَرْقِيَّةٍ وَلَا غَرْبِيَّةٍ يَكَادُ زَيْتُهَا يُضِىٓءُ وَلَوْ لَمْ تَمْسَسْهُ نَارٌ ۚ نُّورٌ عَلَىٰ نُورٍ ۗ يَهْدِى ٱللَّهُ لِنُورِهِۦ مَن يَشَآءُ ۚ وَيَضْرِبُ ٱللَّهُ ٱلْأَمْثَـٰلَ لِلنَّاسِ ۗ وَٱللَّهُ بِكُلِّ شَىْءٍ عَلِيمٌ', translation: 'God is the Light of the heavens and earth. His Light is like this: there is a niche, and in it a lamp, the lamp inside a glass, a glass like a glittering star, fuelled from a blessed olive tree from neither east nor west, whose oil almost gives light even when no fire touches it- light upon light- God guides whoever He will to his Light; God draws such comparisons for people; God has full knowledge of everything-' },
+      { surah: 'An-Nur', ayah: '24:35' },
     ],
   },
   {
@@ -1196,7 +1286,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Hajj', ayah: '22:54', arabic: 'وَلِيَعْلَمَ ٱلَّذِينَ أُوتُوا۟ ٱلْعِلْمَ أَنَّهُ ٱلْحَقُّ مِن رَّبِّكَ فَيُؤْمِنُوا۟ بِهِۦ فَتُخْبِتَ لَهُۥ قُلُوبُهُمْ ۗ وَإِنَّ ٱللَّهَ لَهَادِ ٱلَّذِينَ ءَامَنُوٓا۟ إِلَىٰ صِرَٰطٍ مُّسْتَقِيمٍ', translation: 'and He causes those given knowledge to realize that this Revelation is your Lord’s Truth, so that they may believe in it and humble their hearts to Him: God guides the faithful to the straight path.' },
+      { surah: 'Al-Furqan', ayah: '25:31' },
     ],
   },
   {
@@ -1208,7 +1298,8 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Af\'ali',
     quranicRefs: [
-      { surah: 'Surah Al-Baqarah', ayah: '2:117', arabic: 'بَدِيعُ ٱلسَّمَـٰوَٰتِ وَٱلْأَرْضِ ۖ وَإِذَا قَضَىٰٓ أَمْرًا فَإِنَّمَا يَقُولُ لَهُۥ كُن فَيَكُونُ', translation: 'He is the Originator of the heavens and the earth, and when He decrees something, He says only, ‘Be,’ and it is.' },
+      { surah: 'Al-Baqarah', ayah: '2:117' },
+      { surah: 'Al-An'am', ayah: '6:101' },
     ],
   },
   {
@@ -1220,8 +1311,7 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Dhati',
     quranicRefs: [
-      { surah: 'Surah Taha', ayah: '20:73', arabic: 'إِنَّآ ءَامَنَّا بِرَبِّنَا لِيَغْفِرَ لَنَا خَطَـٰيَـٰنَا وَمَآ أَكْرَهْتَنَا عَلَيْهِ مِنَ ٱلسِّحْرِ ۗ وَٱللَّهُ خَيْرٌ وَأَبْقَىٰٓ', translation: 'we believe in our Lord, [hoping] He may forgive us our sins and the sorcery that you forced us to practise- God is better and more lasting.’' },
-      { surah: 'Surah Ar-Rahman', ayah: '55:27', arabic: 'وَيَبْقَىٰ وَجْهُ رَبِّكَ ذُو ٱلْجَلَـٰلِ وَٱلْإِكْرَامِ', translation: 'all that remains is the Face of your Lord, full of majesty, bestowing honour.' },
+      { surah: 'Ar-Rahman', ayah: '55:27' },
     ],
   },
   {
@@ -1233,8 +1323,7 @@ export const names: Name[] = [
     mentions: 2,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Hijr', ayah: '15:23', arabic: 'وَإِنَّا لَنَحْنُ نُحْىِۦ وَنُمِيتُ وَنَحْنُ ٱلْوَٰرِثُونَ', translation: 'It is We who give life and death; it is We who inherit [everything].' },
-      { surah: 'Surah Maryam', ayah: '19:40', arabic: 'إِنَّا نَحْنُ نَرِثُ ٱلْأَرْضَ وَمَنْ عَلَيْهَا وَإِلَيْنَا يُرْجَعُونَ', translation: 'It is We who will inherit the earth and all who are on it: they will all be returned to Us.' },
+      { surah: 'Al-Hijr', ayah: '15:23' },
     ],
   },
   {
@@ -1246,7 +1335,7 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Hud', ayah: '11:87', arabic: 'قَالُوا۟ يَـٰشُعَيْبُ أَصَلَوٰتُكَ تَأْمُرُكَ أَن نَّتْرُكَ مَا يَعْبُدُ ءَابَآؤُنَآ أَوْ أَن نَّفْعَلَ فِىٓ أَمْوَٰلِنَا مَا نَشَـٰٓؤُا۟ ۖ إِنَّكَ لَأَنتَ ٱلْحَلِيمُ ٱلرَّشِيدُ', translation: 'They said, ‘Shuayb, does your prayer tell you that we should abandon what our forefathers worshipped and refrain from doing whatever we please with our own property? Indeed you are a tolerant and sensible man.’' },
+      { surah: 'Al-Baqarah', ayah: '2:256' },
     ],
   },
   {
@@ -1258,7 +1347,9 @@ export const names: Name[] = [
     mentions: 1,
     type: 'Sifati',
     quranicRefs: [
-      { surah: 'Surah Al-Anfal', ayah: '8:46', arabic: 'وَأَطِيعُوا۟ ٱللَّهَ وَرَسُولَهُۥ وَلَا تَنَـٰزَعُوا۟ فَتَفْشَلُوا۟ وَتَذْهَبَ رِيحُكُمْ ۖ وَٱصْبِرُوٓا۟ ۚ إِنَّ ٱللَّهَ مَعَ ٱلصَّـٰبِرِينَ', translation: 'Obey God and His Messenger, and do not quarrel with one another, or you may lose heart and your spirit may desert you. Be steadfast: God is with the steadfast.' },
+      { surah: 'Al-Baqarah', ayah: '2:153' },
+      { surah: 'Ali Imran', ayah: '3:200' },
+      { surah: 'Al-Asr', ayah: '103:3' },
     ],
   },
 ];

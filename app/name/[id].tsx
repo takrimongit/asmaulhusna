@@ -94,13 +94,14 @@ export default function NameDetail() {
             <Text style={styles.quranTitle}>Quranic References</Text>
           </View>
           {name.quranicRefs && name.quranicRefs.length > 0 ? (
-            name.quranicRefs.map((ref, i) => (
-              <View key={i} style={styles.quranCard}>
-                <Text style={styles.quranArabic}>{ref.arabic}</Text>
-                <Text style={styles.quranTranslation}>{ref.translation}</Text>
-                <Text style={styles.quranSource}>{ref.surah} {ref.ayah}</Text>
-              </View>
-            ))
+            <View style={styles.refChipsRow}>
+              {name.quranicRefs.map((ref, i) => (
+                <View key={i} style={styles.refChip}>
+                  <Text style={styles.refChipAyah}>{ref.ayah}</Text>
+                  <Text style={styles.refChipSurah}>{ref.surah}</Text>
+                </View>
+              ))}
+            </View>
           ) : (
             <Text style={styles.quranText}>
               This name appears in the Quran and is one of the 99 beautiful names of Allah.
@@ -328,34 +329,31 @@ const styles = StyleSheet.create({
     color: '#94a3b8',
     lineHeight: 24,
   },
-  quranCard: {
-    backgroundColor: 'rgba(17,212,82,0.03)',
+  refChipsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+  refChip: {
+    backgroundColor: 'rgba(17,212,82,0.06)',
     borderWidth: 1,
-    borderColor: 'rgba(17,212,82,0.08)',
-    borderRadius: radius.xl,
-    padding: 16,
-    marginBottom: 10,
+    borderColor: 'rgba(17,212,82,0.18)',
+    borderRadius: radius.full,
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    alignItems: 'center',
   },
-  quranArabic: {
-    fontFamily: fonts.arabicBold,
-    fontSize: 22,
-    color: '#f1f5f9',
-    textAlign: 'right',
-    writingDirection: 'rtl',
-    lineHeight: 38,
-    marginBottom: 10,
-  },
-  quranTranslation: {
-    fontSize: 14,
-    color: '#94a3b8',
-    fontStyle: 'italic',
-    lineHeight: 22,
-    marginBottom: 10,
-  },
-  quranSource: {
-    fontSize: 13,
+  refChipAyah: {
+    fontSize: 15,
     color: '#11d452',
-    fontWeight: '600',
+    fontWeight: '700',
+    letterSpacing: 0.5,
+  },
+  refChipSurah: {
+    fontSize: 11,
+    color: 'rgba(241,245,249,0.55)',
+    marginTop: 2,
+    letterSpacing: 0.3,
   },
   /* ─── Favourite ─── */
   favButton: {
