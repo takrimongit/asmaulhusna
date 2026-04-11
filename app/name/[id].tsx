@@ -219,6 +219,7 @@ const styles = StyleSheet.create({
   heroArabic: {
     fontFamily: fonts.arabicBold,
     fontSize: 64,
+    lineHeight: 96,
     color: '#FFFFFF',
     textAlign: 'center',
     writingDirection: 'rtl',
