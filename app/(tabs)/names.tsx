@@ -63,17 +63,6 @@ function LearnCard({
         <View style={styles.arabicWrap}>
           <View style={styles.arabicHalo} />
           <Text style={styles.arabic}>{item.arabic}</Text>
-
-          {/* Tasbih counter */}
-          <TouchableOpacity
-            style={styles.counter}
-            onPress={onIncrement}
-            onLongPress={onReset}
-            activeOpacity={0.75}
-          >
-            <Text style={styles.counterCount}>{count}</Text>
-            <Text style={styles.counterLabel}>TASBIH</Text>
-          </TouchableOpacity>
         </View>
 
         {/* ── Transliteration ── */}
@@ -110,6 +99,17 @@ function LearnCard({
 
         {/* ── Invisible tap area ── */}
         <TouchableOpacity style={StyleSheet.absoluteFill} activeOpacity={0.0} onPress={onPress} />
+
+        {/* ── Tasbih counter (above tap area) ── */}
+        <TouchableOpacity
+          style={styles.counter}
+          onPress={onIncrement}
+          onLongPress={onReset}
+          activeOpacity={0.75}
+        >
+          <Text style={styles.counterCount}>{count}</Text>
+          <Text style={styles.counterLabel}>TASBIH</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -426,20 +426,20 @@ const styles = StyleSheet.create({
   /* Tasbih counter */
   counter: {
     position: 'absolute',
-    bottom: 4,
-    right: 4,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    bottom: spacing.lg,
+    right: spacing.lg,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: colors.primary,
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.45,
-    shadowRadius: 12,
-    elevation: 8,
-    zIndex: 10,
+    shadowOpacity: 0.5,
+    shadowRadius: 14,
+    elevation: 10,
+    zIndex: 20,
   },
   counterCount: {
     color: '#fff',
