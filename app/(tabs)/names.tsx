@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { names } from '../../data/names';
 import type { Name } from '../../data/names';
 import { useFavoritesContext } from '../../context/FavoritesContext';
+import { useTasbeeh } from '../../hooks/useTasbeeh';
 import { colors, fonts, spacing, radius } from '../../constants/theme';
 
 const { width: W } = Dimensions.get('window');
@@ -24,11 +25,17 @@ function LearnCard({
   isFavorite,
   onToggleFavorite,
   onPress,
+  count,
+  onIncrement,
+  onReset,
 }: {
   item: Name;
   isFavorite: boolean;
   onToggleFavorite: () => void;
   onPress: () => void;
+  count: number;
+  onIncrement: () => void;
+  onReset: () => void;
 }) {
   return (
     <View style={[styles.cardOuter, { width: W }]}>
@@ -56,6 +63,17 @@ function LearnCard({
         <View style={styles.arabicWrap}>
           <View style={styles.arabicHalo} />
           <Text style={styles.arabic}>{item.arabic}</Text>
+
+          {/* Tasbih counter */}
+          <TouchableOpacity
+            style={styles.counter}
+            onPress={onIncrement}
+            onLongPress={onReset}
+            activeOpacity={0.75}
+          >
+            <Text style={styles.counterCount}>{count}</Text>
+            <Text style={styles.counterLabel}>TASBIH</Text>
+          </TouchableOpacity>
         </View>
 
         {/* ── Transliteration ── */}
@@ -103,6 +121,7 @@ const viewabilityConfig = { viewAreaCoveragePercentThreshold: 50 };
 export default function LearnScreen() {
   const router = useRouter();
   const favs = useFavoritesContext();
+  const { counts, increment, reset } = useTasbeeh();
   const listRef = useRef<FlatList<Name>>(null);
   const [idx, setIdx] = useState(0);
 
@@ -152,6 +171,9 @@ export default function LearnScreen() {
             isFavorite={favs.favorites.has(item.id)}
             onToggleFavorite={() => favs.toggle(item.id)}
             onPress={() => router.push(`/name/${item.id}`)}
+            count={counts[item.id] || 0}
+            onIncrement={() => increment(item.id)}
+            onReset={() => reset(item.id)}
           />
         )}
       />
@@ -399,6 +421,37 @@ const styles = StyleSheet.create({
   },
   chipTextGold: {
     color: colors.gold,
+  },
+
+  /* Tasbih counter */
+  counter: {
+    position: 'absolute',
+    bottom: 4,
+    right: 4,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.45,
+    shadowRadius: 12,
+    elevation: 8,
+    zIndex: 10,
+  },
+  counterCount: {
+    color: '#fff',
+    fontSize: 17,
+    fontWeight: '800',
+    lineHeight: 20,
+  },
+  counterLabel: {
+    color: 'rgba(255,255,255,0.7)',
+    fontSize: 7,
+    fontWeight: '700',
+    letterSpacing: 1,
   },
 
   /* Tap hint */
