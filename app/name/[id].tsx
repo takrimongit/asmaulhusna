@@ -78,7 +78,7 @@ export default function NameDetail() {
           <View style={styles.infoCard}>
             <Ionicons name="book-outline" size={24} color="#11d452" style={styles.infoIcon} />
             <Text style={styles.infoLabel}>MENTIONS</Text>
-            <Text style={styles.infoValue}>{name.mentions} Times</Text>
+            <Text style={styles.infoValue}>{name.quranicRefs.length} Times</Text>
           </View>
           <View style={styles.infoCard}>
             <Ionicons name="sparkles-outline" size={24} color="#11d452" style={styles.infoIcon} />
@@ -90,7 +90,7 @@ export default function NameDetail() {
         {/* Quranic References */}
         <View style={styles.quranSection}>
           <View style={styles.quranHeader}>
-            <Text style={styles.quranBadge}>99</Text>
+            <Text style={styles.quranBadge}>{name.quranicRefs.length}</Text>
             <Text style={styles.quranTitle}>Quranic References</Text>
           </View>
           {name.quranicRefs && name.quranicRefs.length > 0 ? (
