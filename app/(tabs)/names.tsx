@@ -2,14 +2,14 @@ import React, { useState, useMemo } from 'react';
 import { FlatList, View, Text, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { names } from '../../data/names';
-import { useFavorites } from '../../hooks/useFavorites';
+import { useFavoritesContext } from '../../context/FavoritesContext';
 import { NameCard } from '../../components/NameCard';
 import { SearchBar } from '../../components/SearchBar';
 import { colors, spacing } from '../../constants/theme';
 
 export default function NamesScreen() {
   const [query, setQuery] = useState('');
-  const favs = useFavorites();
+  const favs = useFavoritesContext();
   const router = useRouter();
 
   const filtered = useMemo(() => {

@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 import { names } from '../../data/names';
-import { useFavorites } from '../../hooks/useFavorites';
+import { useFavoritesContext } from '../../context/FavoritesContext';
 import { colors, fonts, spacing, radius } from '../../constants/theme';
 
 const { width } = Dimensions.get('window');
@@ -18,7 +18,7 @@ function getNameOfTheDay() {
 
 export default function HomeScreen() {
   const router = useRouter();
-  const favs = useFavorites();
+  const favs = useFavoritesContext();
   const nameOfDay = useMemo(() => getNameOfTheDay(), []);
   const previewNames = names.slice(0, 4);
 

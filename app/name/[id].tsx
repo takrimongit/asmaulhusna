@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TouchableOpacity, StyleSheet, Share, Platform }
 import { useLocalSearchParams, useNavigation, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { names } from '../../data/names';
-import { useFavorites } from '../../hooks/useFavorites';
+import { useFavoritesContext } from '../../context/FavoritesContext';
 import { useTasbeeh } from '../../hooks/useTasbeeh';
 import { colors, fonts, spacing, radius } from '../../constants/theme';
 
@@ -11,7 +11,7 @@ export default function NameDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const navigation = useNavigation();
   const router = useRouter();
-  const { favorites, toggle } = useFavorites();
+  const { favorites, toggle } = useFavoritesContext();
 
   const name = names.find((n) => n.id === Number(id));
   const { counts, increment, reset } = useTasbeeh();

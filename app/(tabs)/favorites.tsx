@@ -2,12 +2,12 @@ import React from 'react';
 import { FlatList, View, Text, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { names } from '../../data/names';
-import { useFavorites } from '../../hooks/useFavorites';
+import { useFavoritesContext } from '../../context/FavoritesContext';
 import { NameCard } from '../../components/NameCard';
 import { colors, spacing } from '../../constants/theme';
 
 export default function FavoritesScreen() {
-  const favs = useFavorites();
+  const favs = useFavoritesContext();
   const router = useRouter();
 
   const favoriteNames = names.filter((n) => favs.favorites.has(n.id));

@@ -5,6 +5,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { colors } from '../constants/theme';
 import { SplashScreenView } from '../components/SplashScreen';
+import { FavoritesProvider } from '../context/FavoritesContext';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -25,15 +26,15 @@ export default function RootLayout() {
 
   if (showSplash) {
     return (
-      <>
+      <FavoritesProvider>
         <StatusBar style="light" />
         <SplashScreenView onFinish={() => setShowSplash(false)} />
-      </>
+      </FavoritesProvider>
     );
   }
 
   return (
-    <>
+    <FavoritesProvider>
       <StatusBar style="light" />
       <Stack
         screenOptions={{
@@ -52,6 +53,6 @@ export default function RootLayout() {
           }}
         />
       </Stack>
-    </>
+    </FavoritesProvider>
   );
 }
